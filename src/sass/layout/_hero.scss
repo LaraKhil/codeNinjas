@@ -1,1 +1,32 @@
-// hero
+.hero-list{
+  &__item {
+    margin-top: 20px;
+    outline: 1px solid tomato;
+    // @media screen and (min-width: 768px) {}
+    // @media screen  and (min-width: 1200px) {}
+  }
+  // &__tumb{}
+  &__img {
+    outline: 1px solid tomato;
+    // margin-right: auto;
+    // margin-left: auto;
+
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    text-transform: uppercase;
+
+    margin-top: 10px;
+    // margin-left: 23px;
+  }
+  &__desc{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+
+    // margin-left: 23px;
+    color: var(--accent-cl);
+  }
+}
