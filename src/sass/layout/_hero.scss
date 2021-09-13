@@ -1,4 +1,4 @@
-.cart-list{
+.hero-list{
   &__item {
     margin-top: 20px;
     outline: 1px solid tomato;
@@ -29,8 +29,4 @@
     // margin-left: 23px;
     color: var(--accent-cl);
   }
-}
-
-.img-container {
-  width: 100%;
 }
