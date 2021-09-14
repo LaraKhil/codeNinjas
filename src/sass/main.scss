@@ -1,7 +1,5 @@
 // var
 @import './utils/variables';
-// utils
-@import './utils/is-hidden';
 // base
 @import './base/common';
 @import './base/container';
@@ -14,4 +12,6 @@
 @import './layout/header';
 @import './layout/hero';
 @import './layout/footer';
-@import './layout/mylibrery';
+
+// utils
+@import './utils/is-hidden';
