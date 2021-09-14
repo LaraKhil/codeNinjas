@@ -216,7 +216,9 @@ const filmApiService = {
     return data;
   },
 };
+
 export default filmApiService;
+
 // export default async function GetPopularFilms() {
 //   const mediaType = 'movie';
 //   const timeWindow = 'day';
