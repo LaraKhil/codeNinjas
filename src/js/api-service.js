@@ -33,12 +33,16 @@
 // const API_KEY = '28a3a1a55be29248c28e2fe727538aaf';
 // const BASE_URL = 'https://api.themoviedb.org/3';
 const filmApiService = {
+  genres: [],
   api_key: '28a3a1a55be29248c28e2fe727538aaf',
   base_url: 'https://api.themoviedb.org/3',
   page: 1,
   query: '',
   setQuery(query) {
     this.query = query;
+  },
+  setPage(page) {
+    this.page = page;
   },
 
   /**
@@ -72,7 +76,17 @@ const filmApiService = {
   "total_results": 15831
 }
  */
-  async fetchPopularFilms() {
+  async fetchAPIGenres() {
+    const mediaType = 'movie';
+    const url = `${this.base_url}/genre/${mediaType}/list?api_key=${this.api_key}&language=en-US`;
+    return await this.fetchFilm(url);
+  },
+
+
+
+
+  async fetchPopularFilms(page = 1) {
+    this.setPage(page);
     const mediaType = 'movie';
     const timeWindow = 'day';
     const requestParams = `trending/${mediaType}/${timeWindow}?api_key=${this.api_key}&page=${this.page}`;
@@ -216,7 +230,9 @@ const filmApiService = {
     return data;
   },
 };
+
 export default filmApiService;
+
 // export default async function GetPopularFilms() {
 //   const mediaType = 'movie';
 //   const timeWindow = 'day';

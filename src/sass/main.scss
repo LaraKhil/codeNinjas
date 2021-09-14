@@ -1,16 +1,17 @@
 // var
 @import './utils/variables';
-// utils
-@import './utils/is-hidden';
 // base
 @import './base/common';
 @import './base/container';
 // components
 @import './components/text';
 @import './components/btn';
-@import './components/modal';
+// @import './components/modal';
 
 // layout
 @import './layout/header';
 @import './layout/hero';
 @import './layout/footer';
+
+// utils
+@import './utils/is-hidden';
