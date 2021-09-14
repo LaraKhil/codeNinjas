@@ -42,6 +42,9 @@ const filmApiService = {
   setQuery(query) {
     this.query = query;
   },
+  setPage(page) {
+    this.page = page;
+  },
 
   /**
  * {
@@ -83,7 +86,8 @@ const filmApiService = {
 
 
 
-  async fetchPopularFilms() {
+  async fetchPopularFilms(page = 1) {
+    this.setPage(page);
     const mediaType = 'movie';
     const timeWindow = 'day';
     const requestParams = `trending/${mediaType}/${timeWindow}?api_key=${this.api_key}&page=${this.page}`;

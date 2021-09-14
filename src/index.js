@@ -12,6 +12,11 @@ import './js/modalSingleCard';
 
 import './js/cartset';
 
+import './js/header';
+
+import './js/modal-btn';
+import './js/pagination';
+
 // import filmApiService from './js/api-service.js';
 
 // console.log(filmApiService.fetchPopularFilms());
