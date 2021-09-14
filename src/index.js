@@ -10,6 +10,7 @@ import Pagination from 'tui-pagination';
 // instance.getCurrentPage();
 
 import './js/cartset';
+import './js/pagination';
 
 // import filmApiService from './js/api-service.js';
 
