@@ -89,6 +89,7 @@
     background-color: transparent;
     padding: 0;
     border: none;
+    color: var(--bg-text-cl);
     &::placeholder {
       color: var(--bg-text-cl);
     }
