@@ -12,6 +12,7 @@
       flex-basis: calc(100% / 2 - 30px);
       margin-left: 30px;
       margin-top: 30px;
+      // background-color: green;
     }
 
     @media screen and (min-width: 1024px) {
@@ -21,22 +22,26 @@
   // &__tumb{}
   &__img {
     border-radius: 5px;
-    margin: 0 auto;
+    // margin: 0 auto;
+    height: 398px;
+    width: 100%;
+    object-fit: cover;
+
+    @media screen and (min-width: 768px) {
+      width: 293px;
+    }
   }
   &__title {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
     text-transform: uppercase;
-    text-align: center;
-
     margin-top: 10px;
   }
   &__desc {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
-    text-align: center;
 
     color: var(--accent-cl);
   }
@@ -47,4 +52,9 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.tui-is-selected {
+  background-color: blue;
+  color: yellow;
 }
