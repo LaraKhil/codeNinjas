@@ -33,6 +33,7 @@
 // const API_KEY = '28a3a1a55be29248c28e2fe727538aaf';
 // const BASE_URL = 'https://api.themoviedb.org/3';
 const filmApiService = {
+  id: '',
   genres: [],
   api_key: '28a3a1a55be29248c28e2fe727538aaf',
   base_url: 'https://api.themoviedb.org/3',
