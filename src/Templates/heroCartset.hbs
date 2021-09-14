@@ -1,7 +1,7 @@
-{{#each}}
+{{#each results}}
   <li class='hero-list__item'>
-    <img src='${}' alt='${}' class='hero-list__img' />
-    <p class='hero-list__title'>${}</p>
-    <p class='hero-list__desc'>${} | ${}</p>
+    <img src={{poster_path}} alt='' class='hero-list__img' />
+    <p class='hero-list__title'>{{title}}</p>
+    <p class='hero-list__desc'> | {{release_date}}</p>
   </li>
 {{/each}}
