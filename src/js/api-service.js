@@ -33,6 +33,7 @@
 // const API_KEY = '28a3a1a55be29248c28e2fe727538aaf';
 // const BASE_URL = 'https://api.themoviedb.org/3';
 const filmApiService = {
+  genres: [],
   api_key: '28a3a1a55be29248c28e2fe727538aaf',
   base_url: 'https://api.themoviedb.org/3',
   page: 1,
@@ -72,6 +73,15 @@ const filmApiService = {
   "total_results": 15831
 }
  */
+  async fetchAPIGenres() {
+    const mediaType = 'movie';
+    const url = `${this.base_url}/genre/${mediaType}/list?api_key=${this.api_key}&language=en-US`;
+    return await this.fetchFilm(url);
+  },
+
+
+
+
   async fetchPopularFilms() {
     const mediaType = 'movie';
     const timeWindow = 'day';
