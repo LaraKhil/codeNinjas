@@ -6,10 +6,9 @@
   padding-left: 20px;
 
   @media screen and(min-width: 768px) {
-    max-width: 614px;
+    max-width: 768px;
     padding-right: 75px;
     padding-left: 75px;
-    
   }
 
   @media screen and(min-width: 1024px) {
@@ -17,5 +16,4 @@
     padding-right: 71px;
     padding-left: 71px;
   }
-
 }
