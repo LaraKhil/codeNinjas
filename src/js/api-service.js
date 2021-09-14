@@ -33,6 +33,7 @@
 // const API_KEY = '28a3a1a55be29248c28e2fe727538aaf';
 // const BASE_URL = 'https://api.themoviedb.org/3';
 const filmApiService = {
+  id: '',
   genres: [],
   api_key: '28a3a1a55be29248c28e2fe727538aaf',
   base_url: 'https://api.themoviedb.org/3',
@@ -40,6 +41,9 @@ const filmApiService = {
   query: '',
   setQuery(query) {
     this.query = query;
+  },
+  setPage(page) {
+    this.page = page;
   },
 
   /**
@@ -82,7 +86,8 @@ const filmApiService = {
 
 
 
-  async fetchPopularFilms() {
+  async fetchPopularFilms(page = 1) {
+    this.setPage(page);
     const mediaType = 'movie';
     const timeWindow = 'day';
     const requestParams = `trending/${mediaType}/${timeWindow}?api_key=${this.api_key}&page=${this.page}`;
