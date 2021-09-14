@@ -1,4 +1,5 @@
 import './sass/main.scss';
+
 import Pagination from 'tui-pagination';
 
 // Examples for Pagination
@@ -7,3 +8,11 @@ import Pagination from 'tui-pagination';
 // const instance = new Pagination(container, { ... });
 
 // instance.getCurrentPage();
+
+import './js/cartset';
+
+// import filmApiService from './js/api-service.js';
+
+// console.log(filmApiService.fetchPopularFilms());
+
+// filmApiService.fetchPopularFilms().then(data => console.log(data));
