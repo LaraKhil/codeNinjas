@@ -1,11 +1,13 @@
 // modal
 .modal{
    position: fixed;
+   top: 0;
+   left: 0;
    width: 100%;
    height: 100vh;
    overflow: scroll;
    padding-top: 18px;
-   background-color: #818181;
+   background-color: rgba(130, 130, 130, 0.45);
    font-size: 12px;
    font-weight: 500;
    padding-bottom: 20px;
@@ -34,6 +36,17 @@
             transform: translateY(-50%);
             padding-left: 28px;
             padding-right: 28px;
+            padding-top: 42px;
+            padding-bottom: 40px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            max-width: 882px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 50px;
+            padding-bottom: 40px;
+            
         }
     }
 
@@ -48,6 +61,7 @@
             width: 264px;
             height: 373px;
             flex-basis: 50%;
+            margin-right: 32px;
         }
 
     }
@@ -55,8 +69,8 @@
     &__text-container{
     flex-basis: 100%;
         @media screen and (min-width: 768px){
-            lex-basis: 50%;
-        
+            flex-basis: 50%;
+
         }
     }
 
@@ -86,9 +100,25 @@
     &__item{
         display: flex;
         justify-content: space-between;
-        margin-bottom: 10px;
         line-height: 1.3;
         color: var(--h-modal-cl);
+    }
+
+    &__item:not(:last-child){
+       margin-bottom: 10px; 
+    }
+
+    &__item:last-child{
+        margin-bottom: 20px;
+    }
+
+    &__rating{
+        background-color: var(--accent-cl);
+        padding-left: 10px;
+        padding-right: 10px;
+        color: var(--bg-text-cl);
+        border-radius: 5px;
+        margin-right: 2px;
     }
 
     &__text-dark{
