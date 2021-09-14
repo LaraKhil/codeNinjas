@@ -6,6 +6,7 @@
     justify-content: start;
   }
 }
+
 .btn {
   font-size: 12px;
   cursor: pointer;
@@ -30,8 +31,11 @@
   }
   //
   &__header {
+     margin-top: 50px;
+     margin-bottom: 65px;
     &:not(:last-child) {
       margin-right: 20px;
+     
     }
     @media screen and(min-width: 768px) {
       width: 136px;
