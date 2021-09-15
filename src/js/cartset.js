@@ -5,8 +5,9 @@ export const refs = document.querySelector('.hero-list');
 
 const refList = document.querySelector('.hero-list');
 
-filmApiService.fetchAPIGenres()
-  .then(data =>filmApiService.genres = data.genres)
+filmApiService
+  .fetchAPIGenres()
+  .then(data => (filmApiService.genres = data.genres))
   .then(() => filmApiService.fetchPopularFilms())
   .then(({ results }) => {
     const normalData = results.map(movie => {
@@ -26,3 +27,4 @@ filmApiService.fetchAPIGenres()
     const render = renderPopularFilms(normalData);
     refList.innerHTML = render;
   });
+
