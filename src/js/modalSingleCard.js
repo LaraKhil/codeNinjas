@@ -68,6 +68,17 @@ function onFilmClick(e) {
       
       modalRefs.modalBtnClose.addEventListener('click', onModalClose);
       modalRefs.modalCloseBlur.addEventListener('click', onModalClose);
+
+          modalBtnService.updateBtns(targetId);
+    modalBtnService.refs.queueBtn.addEventListener('click', () =>
+      onAddBtnClick(modalBtnService.localStorageKeys.queueFilm),
+    );
+    modalBtnService.refs.watchBtn.addEventListener('click', () =>
+      onAddBtnClick(modalBtnService.localStorageKeys.watchedFilm),
+    );
+    function onAddBtnClick(key) {
+      modalBtnService.save(key);
+    }
     });
   }
   
