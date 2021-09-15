@@ -7,7 +7,6 @@ export const refs = document.querySelector('.hero-list');
 
 const refList = document.querySelector('.hero-list');
 
-
 export function apiRenderFirstPage(){
   filmApiService
     .fetchAPIGenres()
@@ -17,3 +16,4 @@ export function apiRenderFirstPage(){
 };
 
 apiRenderFirstPage();
+

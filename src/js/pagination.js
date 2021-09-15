@@ -7,8 +7,6 @@ import renderPopularFilms from '../Templates/heroCartset.hbs';
 import emptyPoster from '../images/plug.png'
 import { normalData } from './api-service';
 
-
-
 const refList = document.querySelector('.hero-list');
 
 filmApiService.fetchPopularFilms().then(data => {
@@ -23,23 +21,21 @@ filmApiService.fetchPopularFilms().then(data => {
 
   const pagination = new Pagination('pagination', options);
 
-
   pagination.on('beforeMove', event => {
     const currentPage = event.page;
-    filmApiService.fetchPopularFilms(currentPage)
+    filmApiService
+      .fetchPopularFilms(currentPage)
       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
   });
 
-// pagination.on('beforeMove', event => {
-//   const currentPage = event.page;
-//   filmApiService
-//     .fetchAPIGenres()
-//     .then(data => (filmApiService.genres = data.genres))
-//     .then(() => filmApiService.fetchPopularFilms(currentPage))
-//     .then(({ results }) => {
-//       normalData(results, refList, renderPopularFilms, emptyPoster)
-//     });
-
-
+  // pagination.on('beforeMove', event => {
+  //   const currentPage = event.page;
+  //   filmApiService
+  //     .fetchAPIGenres()
+  //     .then(data => (filmApiService.genres = data.genres))
+  //     .then(() => filmApiService.fetchPopularFilms(currentPage))
+  //     .then(({ results }) => {
+  //       normalData(results, refList, renderPopularFilms, emptyPoster)
+  //     });
 });
 

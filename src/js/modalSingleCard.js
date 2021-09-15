@@ -2,11 +2,8 @@ import filmApiService from './api-service';
 import renderModalWindow from '../Templates/modalTemplate.hbs';
 import {refs} from '../js/cartset';
 
-
 const modalList = document.querySelector('.modal');
 const modalHBS = document.querySelector('.modal__hbs-wrapper');
-
-
 
 function onFilmClick(e){
   const targetId = e.target.id;
@@ -46,5 +43,3 @@ function onFilmClick(e){
 };
 
 refs.addEventListener('click', onFilmClick);
-
-
