@@ -1,4 +1,5 @@
 .header {
+  height: 230px;
   margin-bottom: 20px;
   font-size: 25px;
   padding-top: 45px;
@@ -10,6 +11,7 @@
     url(../images/header-mob-min.jpg);
   background-repeat: no-repeat;
   background-position: center;
+
   @media screen and (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header-mob2x-min.jpg);
@@ -80,18 +82,21 @@
     margin-top: 35px;
   }
   &__input {
+    width: 100%;
+    color: var(--bg-text-cl);
     font-style: 400;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
     display: flex;
     align-items: center;
-    background-color: transparent;
-    padding: 0;
-    border: none;
     &::placeholder {
       color: var(--bg-text-cl);
     }
+
+    background-color: transparent;
+    padding: 0;
+    border: none;
   }
   &__button {
     background-color: transparent;
@@ -119,7 +124,6 @@
     }
   }
 }
-
 .header__link-home {
   position: relative;
 }
@@ -131,19 +135,16 @@
   width: 100%;
   height: 4px;
   background-color: var(--accent-cl);
-  border-radius: 2px;
   cursor: pointer;
 }
-// MY LIBRERY STYLES
 .librery {
+  height: 230px;
   margin-bottom: 20px;
   font-size: 25px;
-  padding-top: 45px;
-  padding-bottom: 65px;
+  padding-bottom: 45px;
   padding-left: 0;
   padding-right: 0;
   background-size: cover;
-  margin-bottom: 20px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/librery-mob-min.jpg);
   background-repeat: no-repeat;
@@ -178,4 +179,15 @@
         url(../images/librery-desk2x-min.jpg);
     }
   }
+}
+.error {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.17;
+  align-items: center;
+  color: #ff001b;
+}
+.btn-box {
+  margin-top: 45px;
 }

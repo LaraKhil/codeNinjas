@@ -33,6 +33,7 @@
 // const API_KEY = '28a3a1a55be29248c28e2fe727538aaf';
 // const BASE_URL = 'https://api.themoviedb.org/3';
 const filmApiService = {
+  id: '',
   genres: [],
   api_key: '28a3a1a55be29248c28e2fe727538aaf',
   base_url: 'https://api.themoviedb.org/3',
@@ -81,9 +82,6 @@ const filmApiService = {
     const url = `${this.base_url}/genre/${mediaType}/list?api_key=${this.api_key}&language=en-US`;
     return await this.fetchFilm(url);
   },
-
-
-
 
   async fetchPopularFilms(page = 1) {
     this.setPage(page);
@@ -232,6 +230,30 @@ const filmApiService = {
 };
 
 export default filmApiService;
+
+export function normalData(data, refs, render, emptyPoster) {
+  const normalData = data.map(movie => {
+    const releaseYear = new Date(movie.release_date).getFullYear();
+    const fullPath = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    const poster = movie.poster_path ? fullPath : emptyPoster;
+    return {
+      ...movie,
+      release_date: releaseYear,
+      poster,
+      genres: filmApiService.genres
+        .filter(obj => movie.genre_ids.includes(obj.id))
+        .map(genre => genre.name)
+        .slice(0, 3)
+        .join(', '),
+    };
+  });
+
+  // console.log(normalData);
+  // refList.innerHTML = '';
+
+  const renderMarkup = render(normalData);
+  refs.innerHTML = renderMarkup;
+}
 
 // export default async function GetPopularFilms() {
 //   const mediaType = 'movie';
