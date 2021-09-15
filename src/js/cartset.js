@@ -3,8 +3,9 @@ import renderPopularFilms from '../Templates/heroCartset.hbs';
 
 const refList = document.querySelector('.hero-list');
 
-filmApiService.fetchAPIGenres()
-  .then(data =>filmApiService.genres = data.genres)
+filmApiService
+  .fetchAPIGenres()
+  .then(data => (filmApiService.genres = data.genres))
   .then(() => filmApiService.fetchPopularFilms())
   .then(({ results }) => {
     const normalData = results.map(movie => {
@@ -22,4 +23,4 @@ filmApiService.fetchAPIGenres()
     const render = renderPopularFilms(normalData);
     refList.innerHTML = render;
   });
-console.log(filmApiService.genres);
+// console.log(filmApiService.genres);

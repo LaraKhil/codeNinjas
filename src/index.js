@@ -1,6 +1,6 @@
 import './sass/main.scss';
 
-import Pagination from 'tui-pagination';
+// import Pagination from 'tui-pagination';
 
 // Examples for Pagination
 
@@ -10,6 +10,7 @@ import Pagination from 'tui-pagination';
 // instance.getCurrentPage();
 
 import './js/cartset';
+import './js/findby-query';
 
 import './js/header';
 
