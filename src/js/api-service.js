@@ -227,9 +227,33 @@ const filmApiService = {
 
     return data;
   },
+  
 };
 
 export default filmApiService;
+
+export function normalData(data, refs, render, emptyPoster) {
+  const normalData = data.map(movie => {
+    const releaseYear = new Date(movie.release_date).getFullYear();
+    const fullPath = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    const poster = movie.poster_path ? fullPath : emptyPoster;
+    return {
+      ...movie,
+      release_date: releaseYear,
+      poster,
+      genres: filmApiService.genres
+        .filter(obj => movie.genre_ids.includes(obj.id))
+        .map(genre => genre.name)
+        .slice(0, 3)
+        .join(', '),
+    };
+  });
+
+  console.log(normalData);
+  // refList.innerHTML = '';
+  const renderMarkup = render(normalData);
+  refs.insertAdjacentHTML('afterbegin', renderMarkup); 
+}
 
 // export default async function GetPopularFilms() {
 //   const mediaType = 'movie';

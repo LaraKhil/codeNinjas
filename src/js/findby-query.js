@@ -1,6 +1,9 @@
 import filmApiService from './api-service';
-import renderFilms from '../Templates/heroCartset.hbs';
+import renderPopularFilms from '../Templates/heroCartset.hbs';
 import { debounce } from 'lodash';
+import { normalData } from './api-service';
+import emptyPoster from '../images/plug.png'
+
 // const debounce = require('lodash.debounce');
 
 const refsError = document.querySelector('#error-form');
@@ -18,10 +21,11 @@ function onInput(e) {
       refsError.classList.add('error');
       refsError.classList.remove('is-hidden');
     }
+    normalData(results, refList, renderPopularFilms, emptyPoster);
 
-    const render = renderFilms(results);
-    // console.log(results);
-    refList.innerHTML = '';
-    refList.insertAdjacentHTML('afterbegin', render);
+    // const render = renderFilms(results);
+    // // console.log(results);
+    // refList.innerHTML = '';
+    // refList.insertAdjacentHTML('afterbegin', render);
   });
 }

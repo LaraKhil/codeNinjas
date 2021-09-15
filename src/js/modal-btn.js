@@ -47,9 +47,9 @@ const modalBtn = {
 
 // localStorage.clear();
 
-modalBtn.refs.queueBtn.addEventListener('click', () => {
-  modalBtn.save('queueList');
-});
-modalBtn.refs.watchBtn.addEventListener('click', () => {
-  modalBtn.save('watchedList');
-});
+// modalBtn.refs.queueBtn.addEventListener('click', () => {
+//   modalBtn.save('queueList');
+// });
+// modalBtn.refs.watchBtn.addEventListener('click', () => {
+//   modalBtn.save('watchedList');
+// });
