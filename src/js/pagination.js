@@ -4,7 +4,7 @@ import 'tui-pagination/dist/tui-pagination.css';
 import filmApiService from './api-service';
 import renderPopularFilms from '../Templates/heroCartset.hbs';
 
-import emptyPoster from '../images/plug.png';
+import emptyPoster from '../images/plug.png'
 import { normalData } from './api-service';
 
 const refList = document.querySelector('.hero-list');
@@ -38,3 +38,4 @@ filmApiService.fetchPopularFilms().then(data => {
   //       normalData(results, refList, renderPopularFilms, emptyPoster)
   //     });
 });
+

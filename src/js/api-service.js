@@ -227,6 +227,7 @@ const filmApiService = {
 
     return data;
   },
+  
 };
 
 export default filmApiService;
@@ -252,7 +253,8 @@ export function normalData(data, refs, render, emptyPoster) {
   // refList.innerHTML = '';
 
   const renderMarkup = render(normalData);
-  refs.innerHTML = renderMarkup;
+  refs.innerHTML = renderMarkup; 
+
 }
 
 // export default async function GetPopularFilms() {

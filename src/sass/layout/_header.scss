@@ -90,6 +90,12 @@
     line-height: 1.14;
     display: flex;
     align-items: center;
+
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    color: var(--bg-text-cl);
+    
     &::placeholder {
       color: var(--bg-text-cl);
     }

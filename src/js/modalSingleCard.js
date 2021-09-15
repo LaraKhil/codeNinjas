@@ -2,27 +2,44 @@ import filmApiService from './api-service';
 import renderModalWindow from '../Templates/modalTemplate.hbs';
 import {refs} from '../js/cartset';
 
-const modalRefs = {
-    modalHbsRef: document.querySelector('.modal__hbs-wrapper'),
-    btnModalClose: document.querySelector('.js-modal__btn-close'),
-    modalMode: document.querySelector('.modal')
-
-};
+const modalList = document.querySelector('.modal');
+const modalHBS = document.querySelector('.modal__hbs-wrapper');
 
 function onFilmClick(e){
   const targetId = e.target.id;
-  filmApiService.fetchFilmsById(targetId)
-  .then(data => {
-    const renderModal = renderModalWindow(data);
-    modalRefs.modalHbsRef.innerHTML = renderModal;
-    modalRefs.modalMode.classList.remove('show');
+
+  document.addEventListener('keydown', (e) => {
+    const keyEsc = e.key === 'Escape';
+    if (keyEsc) {
+      modalList.classList.add('show');
+    }
   });
+  
+  if (e.target !== e.currentTarget){
+    filmApiService.fetchFilmsById(targetId)
+    .then(data => {
+      
+      const renderModal = renderModalWindow(data);
+      modalHBS.innerHTML = renderModal;
+  
+      const modalRefs = {
+        modalBtnClose: document.querySelector('.js-modal__btn-close'),
+        modalCloseBlur: document.querySelector('.modal__wrapper'),
+      };
+
+      modalList.classList.remove('show');
+  
+      function onModalClose(e) {
+        if(e.target === e.currentTarget){
+          modalList.classList.add('show');
+        };
+      }
+      
+      modalRefs.modalBtnClose.addEventListener('click', onModalClose);
+      modalRefs.modalCloseBlur.addEventListener('click', onModalClose);
+    });
+  }
+  
 };
 
-function onBtnModalClose(){
-  modalRefs.modalMode.classList.add('show');
-}
-
 refs.addEventListener('click', onFilmClick);
-modalRefs.btnModalClose.addEventListener('click', onBtnModalClose);
-
