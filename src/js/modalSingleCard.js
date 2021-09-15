@@ -7,7 +7,7 @@ const modalHBS = document.querySelector('.modal__hbs-wrapper');
 
 function onFilmClick(e) {
   const targetId = e.target.id;
-
+  console.log(e);
   document.addEventListener('keydown', (e) => {
     const keyEsc = e.key === 'Escape';
     if (keyEsc) {
@@ -25,7 +25,15 @@ function onFilmClick(e) {
       const modalRefs = {
         modalBtnClose: document.querySelector('.js-modal__btn-close'),
         modalCloseBlur: document.querySelector('.modal__wrapper'),
+        modalImg: document.querySelector('.hero-list__img'),
+        modalGenreHtml: document.querySelector('.js-modal-genre')
       };
+
+      const { modalBtnClose, modalCloseBlur, modalImg, modalGenreHtml } = modalRefs;
+
+      const modalGenres = modalImg.getAttribute('data-genres');
+      modalGenreHtml.innerHTML = modalGenres;
+     
 
       modalList.classList.remove('show');
   
@@ -34,21 +42,21 @@ function onFilmClick(e) {
           modalList.classList.add('show');
         };
       }
-      
-      modalRefs.modalBtnClose.addEventListener('click', onModalClose);
-      modalRefs.modalCloseBlur.addEventListener('click', onModalClose);
+  
+      modalBtnClose.addEventListener('click', onModalClose);
+      modalCloseBlur.addEventListener('click', onModalClose);
 
-    modalBtnService.updateBtns(targetId);
-    modalBtnService.refs.queueBtn.addEventListener('click', () =>
-      onAddBtnClick(modalBtnService.localStorageKeys.queueFilm),
-    );
-    modalBtnService.refs.watchBtn.addEventListener('click', () =>
-      onAddBtnClick(modalBtnService.localStorageKeys.watchedFilm),
-    );
-    function onAddBtnClick(key) {
-      modalBtnService.save(key);
-    }
-    });
+      modalBtnService.updateBtns(targetId);
+      modalBtnService.refs.queueBtn.addEventListener('click', () =>
+        onAddBtnClick(modalBtnService.localStorageKeys.queueFilm),
+      );
+      modalBtnService.refs.watchBtn.addEventListener('click', () =>
+        onAddBtnClick(modalBtnService.localStorageKeys.watchedFilm),
+      );
+      function onAddBtnClick(key) {
+        modalBtnService.save(key);
+      }
+      });
   }
   
 };
