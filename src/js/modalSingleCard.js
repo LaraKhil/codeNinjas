@@ -84,5 +84,4 @@ function onFilmClick(e) {
   
 };
 
-
 refs.addEventListener('click', onFilmClick);
