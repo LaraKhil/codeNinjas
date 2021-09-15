@@ -5,7 +5,10 @@ import { debounce } from 'lodash';
 import { normalData } from './api-service';
 import emptyPoster from '../images/plug.png';
 
+
+
 import { apiRenderFirstPage } from './cartset';
+
 
 
 
@@ -18,20 +21,24 @@ refsInput.addEventListener('input', debounce(onInput, 500));
 
 function onInput(e) {
   const input = e.target.value;
-
   refsError.classList.add('is-hidden');
   if (input === '') {
+// <<<<<<< add-animation
+//     return filmApiService
+//       .fetchAPIGenres()
+//       .then(data => (filmApiService.genres = data.genres))
+//       .then(() => filmApiService.fetchPopularFilms())
+//       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
+// =======
     apiRenderFirstPage();
-  }
 
+  }
 
   filmApiService.fetchFilmsByQuery(input).then(({ results }) => {
     if (results.length === 0) {
       refsError.classList.remove('is-hidden');
       return;
     }
-
-    normalData(results, refList, renderPopularFilms, emptyPoster)
-
+    normalData(results, refList, renderPopularFilms, emptyPoster);
   });
 }
