@@ -83,9 +83,6 @@ const filmApiService = {
     return await this.fetchFilm(url);
   },
 
-
-
-
   async fetchPopularFilms(page = 1) {
     this.setPage(page);
     const mediaType = 'movie';
