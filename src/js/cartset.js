@@ -7,10 +7,13 @@ export const refs = document.querySelector('.hero-list');
 
 const refList = document.querySelector('.hero-list');
 
-filmApiService
-  .fetchAPIGenres()
-  .then(data => (filmApiService.genres = data.genres))
-  .then(() => filmApiService.fetchPopularFilms())
-  .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
 
+export function apiRenderFirstPage(){
+  filmApiService
+    .fetchAPIGenres()
+    .then(data => (filmApiService.genres = data.genres))
+    .then(() => filmApiService.fetchPopularFilms())
+    .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
+};
 
+apiRenderFirstPage();
