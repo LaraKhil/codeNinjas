@@ -5,6 +5,7 @@
 
 .modal{
    &__wrapper{
+        z-index: 2;
         position: fixed;
         top: 0;
         left: 0;
@@ -90,7 +91,11 @@
         }
     }
 
-    &__btn-close{
+    &__img{
+        border-radius: 5px;
+    }
+
+        &__btn-close{
         width: 30px;
         height: 30px;
         text-align: right;
@@ -99,12 +104,9 @@
         top: 10px;
         background-color: transparent;
         border: none;
+        font-size: 16px;
     }
 
-    &__svg-close{
-        stroke: #000000;
-    
-    }
 
     &__title{
         margin-bottom: 20px;

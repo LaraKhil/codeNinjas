@@ -5,6 +5,13 @@ import { debounce } from 'lodash';
 import { normalData } from './api-service';
 import emptyPoster from '../images/plug.png';
 
+
+
+import { apiRenderFirstPage } from './cartset';
+
+
+
+
 const refsError = document.querySelector('#error-form');
 const refList = document.querySelector('.hero-list');
 
@@ -16,11 +23,15 @@ function onInput(e) {
   const input = e.target.value;
   refsError.classList.add('is-hidden');
   if (input === '') {
-    return filmApiService
-      .fetchAPIGenres()
-      .then(data => (filmApiService.genres = data.genres))
-      .then(() => filmApiService.fetchPopularFilms())
-      .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
+// <<<<<<< add-animation
+//     return filmApiService
+//       .fetchAPIGenres()
+//       .then(data => (filmApiService.genres = data.genres))
+//       .then(() => filmApiService.fetchPopularFilms())
+//       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
+// =======
+    apiRenderFirstPage();
+
   }
 
   filmApiService.fetchFilmsByQuery(input).then(({ results }) => {
