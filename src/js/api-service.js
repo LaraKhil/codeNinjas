@@ -250,7 +250,7 @@ export function normalData(data, refs, render, emptyPoster) {
   });
 
   console.log(normalData);
-  // refList.innerHTML = '';
+  refs.innerHTML = '';
   const renderMarkup = render(normalData);
   refs.insertAdjacentHTML('afterbegin', renderMarkup); 
 }
