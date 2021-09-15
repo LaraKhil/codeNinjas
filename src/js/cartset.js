@@ -1,6 +1,8 @@
 import filmApiService from './api-service';
 import renderPopularFilms from '../Templates/heroCartset.hbs';
 
+export const refs = document.querySelector('.hero-list');
+
 const refList = document.querySelector('.hero-list');
 
 filmApiService
@@ -20,7 +22,9 @@ filmApiService
           .join(', '),
       };
     });
+
+    console.log(normalData)
     const render = renderPopularFilms(normalData);
     refList.innerHTML = render;
   });
-// console.log(filmApiService.genres);
+

@@ -1,6 +1,9 @@
 import './sass/main.scss';
 
-// import Pagination from 'tui-pagination';
+
+import Pagination from 'tui-pagination';
+import './js/modalSingleCard';
+
 
 // Examples for Pagination
 
