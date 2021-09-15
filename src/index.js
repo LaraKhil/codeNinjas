@@ -1,3 +1,27 @@
+// import './js/three.min';
+// import './js/vanta.net.min';
+var setVanta = () => {
+  if (window.VANTA)
+    window.VANTA.FOG({
+      el: '#qwer',
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.0,
+      minWidth: 200.0,
+      highlightColor: 0xfad46c,
+      midtoneColor: 0xfc8770,
+      lowlightColor: 0x3913f2,
+      zoom: 3,
+    });
+};
+setVanta();
+
+
+
+
+
+// import './js/bg'
 import './js/pagination';
 import './sass/main.scss';
 
