@@ -1,7 +1,9 @@
 import './sass/main.scss';
 
+
 import Pagination from 'tui-pagination';
 import './js/modalSingleCard';
+
 
 // Examples for Pagination
 
@@ -11,10 +13,11 @@ import './js/modalSingleCard';
 // instance.getCurrentPage();
 
 import './js/cartset';
+import './js/findby-query';
 
 import './js/header';
 
-import './js/modal-btn';
+// import './js/modal-btn';
 import './js/pagination';
 
 // import filmApiService from './js/api-service.js';
