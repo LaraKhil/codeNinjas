@@ -2,6 +2,7 @@ import filmApiService from './api-service';
 import renderModalWindow from '../Templates/modalTemplate.hbs';
 import {refs} from '../js/cartset';
 
+
 const modalList = document.querySelector('.modal');
 const modalHBS = document.querySelector('.modal__hbs-wrapper');
 
