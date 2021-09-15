@@ -187,6 +187,7 @@
   line-height: 1.17;
   align-items: center;
   color: #ff001b;
+  text-align: center;
 }
 .btn-box {
   margin-top: 45px;
@@ -194,16 +195,14 @@
 .error {
   width: 100%;
   height: 100%;
-  color: #ff3d00;
-  animation: nev 5s infinite alternate;
+  // color: #ff3d00;
+  animation: nev 0.4s infinite alternate;
   @keyframes nev {
     from {
-      /* От */
-      opacity: 0; /* полная прозрачность */
+      opacity: 0;
     }
     to {
-      /* До */
-      opacity: 1; /* полная непрозрачность */
+      opacity: 1;
     }
   }
 }
