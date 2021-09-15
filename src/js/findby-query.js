@@ -5,6 +5,9 @@ import { debounce } from 'lodash';
 import { normalData } from './api-service';
 import emptyPoster from '../images/plug.png';
 
+import { apiRenderFirstPage } from './cartset';
+
+
 
 const refsError = document.querySelector('#error-form');
 const refList = document.querySelector('.hero-list');
@@ -18,7 +21,7 @@ function onInput(e) {
 
   refsError.classList.add('is-hidden');
   if (input === '') {
-    return;
+    apiRenderFirstPage();
   }
 
 
