@@ -2,27 +2,31 @@ import filmApiService from './api-service';
 import renderModalWindow from '../Templates/modalTemplate.hbs';
 import {refs} from '../js/cartset';
 
-const modalRefs = {
-    modalHbsRef: document.querySelector('.modal__hbs-wrapper'),
-    btnModalClose: document.querySelector('.js-modal__btn-close'),
-    modalMode: document.querySelector('.modal')
-
-};
+const modalList = document.querySelector('.modal');
+const modalHBS = document.querySelector('.modal__hbs-wrapper');
 
 function onFilmClick(e){
   const targetId = e.target.id;
   filmApiService.fetchFilmsById(targetId)
   .then(data => {
+    
     const renderModal = renderModalWindow(data);
-    modalRefs.modalHbsRef.innerHTML = renderModal;
-    modalRefs.modalMode.classList.remove('show');
+    modalHBS.innerHTML = renderModal;
+
+    const modalRefs = {
+      modalBtnClose: document.querySelector('.js-modal__btn-close'),
+    
+    };
+    modalList.classList.remove('show');
+
+    function onBtnModalClose() {
+      modalList.classList.add('show');
+    }
+
+    modalRefs.modalBtnClose.addEventListener('click', onBtnModalClose);
   });
+
+  
 };
 
-function onBtnModalClose(){
-  modalRefs.modalMode.classList.add('show');
-}
-
 refs.addEventListener('click', onFilmClick);
-modalRefs.btnModalClose.addEventListener('click', onBtnModalClose);
-

@@ -72,7 +72,6 @@
         }
     }
 
-   
 
     &__img-container{
     width: 240px;
@@ -97,6 +96,10 @@
 
     }
 
+    &__img{
+        border-radius: 5px;
+    }
+
     &__text-container{
     flex-basis: 100%;
         @media screen and (min-width: 768px){
@@ -106,20 +109,17 @@
     }
 
     &__btn-close{
-        width: 30px;
-        height: 30px;
-        text-align: right;
         position: absolute;
         right: 10px;
         top: 10px;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        text-align: right;
         background-color: transparent;
         border: none;
     }
 
-    &__svg-close{
-        stroke: #000000;
-    
-    }
 
     &__title{
         margin-bottom: 20px;
@@ -169,7 +169,6 @@
         margin-bottom: 21px;
     }
     
-
     &__btn-container{
         display: flex;
     }
