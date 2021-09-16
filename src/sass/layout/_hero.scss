@@ -74,3 +74,39 @@
     padding-top: 60px;
   }
 }
+
+.back_to_top {
+  position: fixed;
+  bottom: 80px;
+  right: 250px;
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 30px;
+  background-color: transparent;
+  color: #444;
+  cursor: pointer;
+  border-radius: 50%;
+  display: none;
+  border: none;
+}
+
+// .back_to_top:hover {
+  
+  // }
+  
+  .buttonUP:hover {
+    fill: var(--bg-text-cl);
+    border-radius: 60%;
+      background-color: var(--accent-cl);
+}
+
+.back_to_top-show {
+  display: block;
+}
+
+.buttonUP {
+  fill: var(--accent-cl);
+
+}
