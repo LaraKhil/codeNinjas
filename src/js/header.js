@@ -1,3 +1,6 @@
+import modalBtnService from './modal-btn';
+import filmListTmpl from '../Templates/heroCartset.hbs';
+import { apiRenderFirstPage } from './cartset';
 const Refs = {
   homeHeader: document.querySelector('#header-menu-home'),
   libreryHeader: document.querySelector('#header-menu-librery'),
@@ -15,6 +18,7 @@ function onHomeHeaderBtn(e) {
   Refs.headerStyleLibrery.classList.remove('librery');
   Refs.activeLinckHome.classList.add('header__link-home');
   Refs.activeLinckLibrery.classList.remove('header__link-home');
+  apiRenderFirstPage();
 }
 function onLibreryHeaderBtn(e) {
   e.preventDefault();
@@ -23,6 +27,16 @@ function onLibreryHeaderBtn(e) {
   Refs.headerStyleLibrery.classList.add('librery');
   Refs.activeLinckLibrery.classList.add('header__link-home');
   Refs.activeLinckHome.classList.remove('header__link-home');
+
+  /////////render code
+  render();
+}
+
+function render(typeFilmList = modalBtnService.localStorageKeys.watchedFilm.name) {
+  const refs = document.querySelector('.hero-list');
+  let data = modalBtnService.load(typeFilmList);
+  const renderMarkup = filmListTmpl(data);
+  refs.innerHTML = renderMarkup;
 }
 
 Refs.homeHeader.addEventListener('click', onHomeHeaderBtn);
