@@ -24,7 +24,7 @@
         @media screen and (min-width: 768px){
             max-width: 618px;
             top: 50%;
-            transform: translateY(-30%);
+            transform: translateY(-20%);
             padding-left: 28px;
             padding-right: 28px;
             padding-top: 42px;
@@ -32,7 +32,7 @@
         }
 
         @media screen and (min-width: 1024px) {
-            transform: translateY(-50%);
+            transform: translateY(-40%);
             max-width: 1000px;
             padding-left: 30px;
             padding-right: 30px;
@@ -46,7 +46,6 @@
     flex-direction: column;
 
     @media screen and (min-width: 768px){
-
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
@@ -127,7 +126,7 @@
 }
 
 .card-margin2 {
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 768px) and (max-width: 1023px){
         margin-right: 20px;
     }
 }
