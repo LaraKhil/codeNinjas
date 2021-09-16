@@ -1,8 +1,10 @@
-import filmApiService from './api-service';
+import {filmApiService} from './api-service';
 import renderPopularFilms from '../Templates/heroCartset.hbs';
 import { debounce } from 'lodash';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import {fetchRenderWithPagination, backToTop} from './pagination'
+// import backToTop from './pagination'
 
 import { normalData } from './api-service';
 import emptyPoster from '../images/plug.png';
@@ -18,7 +20,7 @@ const refsError = document.querySelector('#error-form');
 const refList = document.querySelector('.hero-list');
 
 const refsInput = document.querySelector('#header-input');
-const refsPagination = document.querySelector('#pagination')
+const refsPagination = document.querySelector('#pagination');
 
 refsInput.addEventListener('input', debounce(onInput, 500));
 
@@ -33,7 +35,8 @@ function onInput(e) {
 //       .then(() => filmApiService.fetchPopularFilms())
 //       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
 // =======
-    apiRenderFirstPage();
+apiRenderFirstPage();
+fetchRenderWithPagination();
 
   }
 
@@ -58,10 +61,11 @@ function onInput(e) {
 
     pagination.on('beforeMove', event => {
       const currentPage = event.page;
-      console.log(currentPage);
+      // console.log(currentPage);
       filmApiService
         .fetchFilmsByQuery(input, currentPage)
         .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
+      backToTop();
     });
 
     // normalData(results, refList, renderPopularFilms, emptyPoster);
