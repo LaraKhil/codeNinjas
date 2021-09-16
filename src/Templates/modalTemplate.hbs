@@ -1,40 +1,42 @@
-<button class="modal__btn-close js-modal__btn-close">
-    &#x2715;
-  </button>
-    <div class="modal__img-container">
-      <img class="modal__img" src="{{poster}}" alt={{title}} />
-    </div>
-    <div class="modal__text-container">
-      <ul class="modal__list">
-        <li class="modal__item">
-          <h2 class="modal__title">{{title}}</h2>
-        </li>
-        <li class="modal__item">
-          <p class="modal_text">Vote / Votes</p>
-          <span class="modal__text-dark"> <span  class= 'modal__rating' >{{vote_average}}</span>/ <span>{{vote_count}}</span></span>
-        </li>
-        <li class="modal__item">
-          <p class="modal_text">Popularity</p>
-          <span class="modal__text-dark">{{popularity}}</span>
-        </li>
-        <li class="modal__item">
-          <p class="modal_text">Original Title</p>
-          <span class="modal__text-dark">{{original_title}}</span>
-        </li>
-        <li class="modal__item">
-          <p class="modal_text">Genre</p>
-          <span class="modal__text-dark js-modal-genre">d</span>
-        </li>
-      </ul>
-      <h3 class="modal_title-desctiption">About</h3>
-      <p class="modal__description">
-        {{overview}}
-      </p>
-      <div class="btn-box">
-        <button type="button" class="btn btn__modal btn--active" data-action="addWatch">
-          Add to watched
-        </button>
+<button class='modal__btn-close js-modal__btn-close'>
+  &#x2715;
+</button>
+<div class='modal__img-container'>
+  <img class='modal__img' src='{{poster}}' alt={{title}} />
+</div>
+<div class='modal__text-container'>
+  <ul class='modal__list'>
+    <li class='modal__item'>
+      <h2 class='modal__title'>{{title}}</h2>
+    </li>
+    <li class='modal__item'>
+      <p class='modal_text'>Vote / Votes</p>
+      <span class='modal__text-dark'>
+        <span class='modal__rating'>{{vote_average}}</span>/
+        <span>{{vote_count}}</span></span>
+    </li>
+    <li class='modal__item'>
+      <p class='modal_text'>Popularity</p>
+      <span class='modal__text-dark'>{{popularity}}</span>
+    </li>
+    <li class='modal__item'>
+      <p class='modal_text'>Original Title</p>
+      <span class='modal__text-dark'>{{original_title}}</span>
+    </li>
+    <li class='modal__item'>
+      <p class='modal_text'>Genre</p>
+      <span class='modal__text-dark js-modal-genre'>d</span>
+    </li>
+  </ul>
+  <h3 class='modal_title-desctiption'>About</h3>
+  <p class='modal__description'>
+    {{overview}}
+  </p>
+  <div class='btn-box'>
+    <button type='button' class='btn btn__modal btn--active' data-action='addWatch'>
+      Add to watched
+    </button>
 
-        <button type="button" class="btn btn__modal" data-action="addQueue">Add to queue</button>
-      </div>
-    </div>
+    <button type='button' class='btn btn__modal' data-action='addQueue'>Add to queue</button>
+  </div>
+</div>
