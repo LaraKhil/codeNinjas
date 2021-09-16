@@ -6,23 +6,20 @@ import modalBtnService from './modal-btn';
 const modalList = document.querySelector('.modal');
 const modalHBS = document.querySelector('.modal__hbs-wrapper');
 
-
 function onFilmClick(e) {
   const targetId = e.target.id;
   console.log(e);
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     const keyEsc = e.key === 'Escape';
     if (keyEsc) {
       modalList.classList.add('show');
     }
   });
-  
-  if (e.target !== e.currentTarget){
-    
-    filmApiService.fetchFilmsById(targetId)
-    .then(data => {
-      console.log(data.poster)
-      if (data.status === 'Released'){
+
+  if (e.target !== e.currentTarget) {
+    filmApiService.fetchFilmsById(targetId).then(data => {
+      console.log(data.poster);
+      if (data.status === 'Released') {
         const renderModal = renderModalWindow(data);
         modalHBS.innerHTML = renderModal;
         const liItem = e.target.closest('li');
@@ -30,24 +27,24 @@ function onFilmClick(e) {
           modalImg: liItem.querySelector('.hero-list__img'),
           modalBtnClose: document.querySelector('.js-modal__btn-close'),
           modalCloseBlur: document.querySelector('.modal__wrapper'),
-          modalGenreHtml: document.querySelector('.js-modal-genre')
+          modalGenreHtml: document.querySelector('.js-modal-genre'),
         };
         const { modalBtnClose, modalCloseBlur, modalImg, modalGenreHtml } = modalRefs;
-  
+
         const modalGenres = modalImg.dataset.genres;
         modalGenreHtml.innerHTML = modalGenres;
-        
+
         modalList.classList.remove('show', 'scale');
-        
+
         function onModalClose(e) {
-          if(e.target === e.currentTarget){
+          if (e.target === e.currentTarget) {
             modalList.classList.add('show', 'scale');
-          };
+          }
         }
-    
+
         modalBtnClose.addEventListener('click', onModalClose);
         modalCloseBlur.addEventListener('click', onModalClose);
-  
+
         modalBtnService.updateBtns(targetId);
         modalBtnService.refs.queueBtn.addEventListener('click', () =>
           onAddBtnClick(modalBtnService.localStorageKeys.queueFilm),
@@ -57,11 +54,10 @@ function onFilmClick(e) {
         );
         function onAddBtnClick(key) {
           modalBtnService.save(key);
-        };
-      };
-      });
+        }
+      }
+    });
   }
-  
-};
+}
 
 refs.addEventListener('click', onFilmClick);

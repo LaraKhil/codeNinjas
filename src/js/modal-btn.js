@@ -1,9 +1,11 @@
+import filmItemTmpl from '../Templates/heroCartset.hbs';
 const modalBtnService = {
   localStorageKeys: {
     queueFilm: { name: 'queueList', exist: false, textContent: 'QUEUE' },
     watchedFilm: { name: 'watchedList', exist: false, textContent: 'WATCHED' },
   },
-
+  genres: '',
+  release_date: '',
   filmId: undefined,
   refs: {
     modal: document.querySelector('.modal'),
@@ -17,6 +19,9 @@ const modalBtnService = {
   updateBtns(id) {
     this.resetKeysExist();
     this.filmId = id;
+    const liElement = document.getElementById(this.filmId);
+    this.genres = liElement.dataset.genres;
+    this.release_date = liElement.dataset.year;
     this.refs.modal = document.querySelector('.modal');
     this.refs.watchBtn = document.querySelector('[data-action="addWatch"]');
     this.refs.queueBtn = document.querySelector('[data-action="addQueue"]');
@@ -53,7 +58,7 @@ const modalBtnService = {
     }
   },
   /**
-   * Сохраняет в localStorage данные фильма по переданному ключу
+   * Сохраняет в localStorage данные фильма по переданному ключу key: { name: 'queueList', exist: false, textContent: 'QUEUE' }
    */
   save(key) {
     try {
@@ -64,9 +69,37 @@ const modalBtnService = {
       }
       if (key.exist) {
         arr = this.removeFilm(this.filmId, arr);
+
+        /////////проверка на какой странице находимся
+        const header = document.querySelector('#header');
+        // console.log());
+        if (
+          header.classList.contains('librery') &&
+          document
+            .getElementById(`btn-header-${key.textContent.toLowerCase()}`)
+            .classList.contains('btn--active')
+        ) {
+          console.log('delete');
+          const filmCard = document.getElementById(this.filmId);
+          if (filmCard) {
+            filmCard.parentElement.remove();
+          }
+        }
       } else {
         const filmObj = this.getfilmData();
         arr.push(filmObj);
+        if (
+          header.classList.contains('librery') &&
+          document
+            .getElementById(`btn-header-${key.textContent.toLowerCase()}`)
+            .classList.contains('btn--active') &&
+          !document.getElementById(this.filmId)
+        ) {
+          const refsList = document.querySelector('.hero-list');
+          const liMarkup = filmItemTmpl([filmObj]);
+          // console.log(liMarkup);
+          refsList.insertAdjacentHTML('beforeend', liMarkup);
+        }
       }
 
       const serializedState = JSON.stringify(arr);
@@ -107,13 +140,14 @@ const modalBtnService = {
    */
   getfilmData() {
     const modal = this.refs.modal;
+    // const liElement = document.getElementById(this.filmId);
 
     const filmData = {
       id: this.filmId,
       poster: modal.querySelector('.modal__img').getAttribute('src'),
       title: modal.querySelector('.modal__title').textContent,
-      genres: 'Genre1, Genre2',
-      release_date: 'release_date',
+      genres: this.genres,
+      release_date: this.release_date,
       // genres: modal.querySelector('[data-description="genres"]').textContent,
       // genres: modal.querySelector('[data-description="genres"]').textContent,
       // releaseYear: modal.querySelector('data-description="release"').textContent,
