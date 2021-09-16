@@ -9,8 +9,9 @@ import { normalData } from './api-service';
 
 const refList = document.querySelector('.hero-list');
 
-filmApiService.fetchPopularFilms().then(data => {
-  // console.log(data.total_results);
+
+function fetchRenderWithPagination() {
+  filmApiService.fetchPopularFilms().then(data => {
   const options = {
     totalItems: data.total_results,
     itemsPerPage: 20,
@@ -27,18 +28,7 @@ filmApiService.fetchPopularFilms().then(data => {
       .fetchPopularFilms(currentPage)
       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
   });
-
-  // pagination.on('beforeMove', event => {
-  //   const currentPage = event.page;
-  //   filmApiService
-  //     .fetchAPIGenres()
-  //     .then(data => (filmApiService.genres = data.genres))
-  //     .then(() => filmApiService.fetchPopularFilms(currentPage))
-  //     .then(({ results }) => {
-  //       normalData(results, refList, renderPopularFilms, emptyPoster)
-  //     });
 });
-//
-//
-//
-// 
+}
+fetchRenderWithPagination();
+export default fetchRenderWithPagination;
