@@ -5,6 +5,7 @@ import modalBtnService from './modal-btn';
 const modalList = document.querySelector('.modal');
 const modalHBS = document.querySelector('.modal__hbs-wrapper');
 
+
 function onFilmClick(e) {
   const targetId = e.target.id;
   console.log(e);
@@ -16,6 +17,7 @@ function onFilmClick(e) {
   });
   
   if (e.target !== e.currentTarget){
+    
     filmApiService.fetchFilmsById(targetId)
     .then(data => {
       
@@ -35,11 +37,11 @@ function onFilmClick(e) {
       modalGenreHtml.innerHTML = modalGenres;
      
 
-      modalList.classList.remove('show');
+      modalList.classList.remove('show', 'scale');
   
       function onModalClose(e) {
         if(e.target === e.currentTarget){
-          modalList.classList.add('show');
+          modalList.classList.add('show', 'scale');
         };
       }
   

@@ -38,4 +38,7 @@ filmApiService.fetchPopularFilms().then(data => {
   //       normalData(results, refList, renderPopularFilms, emptyPoster)
   //     });
 });
-
+//
+//
+//
+// 
