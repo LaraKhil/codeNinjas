@@ -1,0 +1,133 @@
+.fmodal{
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+    background-color: rgba(130, 130, 130, 0.45);
+    opacity: 1;
+    transition: opacity var(--transition), visibility var(--transition);
+
+    &__wrapper {
+        max-width: 280px;
+        position: relative;
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 40px;
+        padding-bottom: 25px;
+        background-color: var(--bg-text-cl);
+        transform: translateY(30px);
+
+        @media screen and (min-width: 768px){
+            max-width: 618px;
+            top: 50%;
+            transform: translateY(-30%);
+            padding-left: 28px;
+            padding-right: 28px;
+            padding-top: 42px;
+            padding-bottom: 40px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            transform: translateY(-50%);
+            max-width: 1000px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 50px;
+            padding-bottom: 40px;
+        }
+    }
+}
+.fcards-container {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px){
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+    }
+
+   
+}
+
+.fcard-container {
+    width: 240px;
+    border-radius: 5%;
+    border-width: 10px;
+    border-color: black;
+    margin-bottom: 15px;
+    border: 2px solid var(--accent-cl);
+    padding-bottom: 15px;
+
+    @media screen and (min-width: 768px){
+        width: 260px;
+    }
+}
+
+.card-img {
+    display: block;
+    margin-bottom: 8px;
+    border-radius: 5%;
+}
+
+.fname {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: large;
+    color: var(--accent-cl);
+}
+
+.fposition {
+    text-align: center;
+    color: rgb(41, 38, 38);
+}
+
+.fmodal__close-btn {
+
+    display: block;
+    position: absolute;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    transition: 0.6s;
+    font-size: 25px;
+    right: 5px;
+    top: 5px;
+    @media screen and (min-width: 768px){
+        
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+       
+
+        &:hover {
+            color: var(--accent-cl);
+            transform: rotate(180deg);
+        }
+
+        &:active {
+            color: white;
+            background-color: var(--accent-cl);
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.card-margin {
+    @media screen and (min-width: 1024px) {
+        margin-right: 50px;
+        margin-left: 50px;  
+    }
+}
+
+.card-margin2 {
+    @media screen and (min-width: 768px){
+        margin-right: 20px;
+    }
+}

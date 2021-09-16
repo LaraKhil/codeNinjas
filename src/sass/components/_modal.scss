@@ -2,6 +2,7 @@
     display: none;
 }
 
+
 .modal {
   &__wrapper {
     z-index: 2;
@@ -48,14 +49,17 @@
       padding-bottom: 40px;
     }
 
-    @media screen and (min-width: 1024px) {
-      max-width: 882px;
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-top: 50px;
-      padding-bottom: 40px;
-    }
-  }
+
+//     &__img-container{
+// =======
+//     @media screen and (min-width: 1024px) {
+//       max-width: 882px;
+//       padding-left: 30px;
+//       padding-right: 30px;
+//       padding-top: 50px;
+//       padding-bottom: 40px;
+//     }
+//   }
 
   &__img-container {
     width: 240px;
