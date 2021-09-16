@@ -27,9 +27,9 @@ function onFilmClick(e) {
         modalHBS.innerHTML = renderModal;
         const liItem = e.target.closest('li');
         const modalRefs = {
+          modalImg: liItem.querySelector('.hero-list__img'),
           modalBtnClose: document.querySelector('.js-modal__btn-close'),
           modalCloseBlur: document.querySelector('.modal__wrapper'),
-          modalImg: liItem.querySelector('.hero-list__img'),
           modalGenreHtml: document.querySelector('.js-modal-genre')
         };
         const { modalBtnClose, modalCloseBlur, modalImg, modalGenreHtml } = modalRefs;
