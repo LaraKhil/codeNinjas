@@ -145,7 +145,6 @@
 }
 .librery {
   height: 230px;
-  margin-bottom: 20px;
   font-size: 25px;
   padding-bottom: 45px;
   padding-left: 0;
@@ -163,7 +162,6 @@
   @media screen and (min-width: 768px) {
     padding-top: 40px;
     padding-bottom: 75px;
-    margin-bottom: 60px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/librery-table-min.jpg);
     @media screen and (min-device-pixel-ratio: 2),
