@@ -1,4 +1,4 @@
-import filmApiService from './api-service';
+import {filmApiService} from './api-service';
 import renderPopularFilms from '../Templates/heroCartset.hbs';
 import { debounce } from 'lodash';
 import Pagination from 'tui-pagination';
@@ -20,7 +20,7 @@ const refsError = document.querySelector('#error-form');
 const refList = document.querySelector('.hero-list');
 
 const refsInput = document.querySelector('#header-input');
-const refsPagination = document.querySelector('#pagination')
+const refsPagination = document.querySelector('#pagination');
 
 refsInput.addEventListener('input', debounce(onInput, 500));
 
@@ -61,7 +61,7 @@ fetchRenderWithPagination();
 
     pagination.on('beforeMove', event => {
       const currentPage = event.page;
-      console.log(currentPage);
+      // console.log(currentPage);
       filmApiService
         .fetchFilmsByQuery(input, currentPage)
         .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));

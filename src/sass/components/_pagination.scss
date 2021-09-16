@@ -32,7 +32,8 @@
 
   padding: 8px 0 6px;
   margin-left: 0;
-  color: #333;
+  color: var(--bg-text-cl);
+  // color: #333;
   font-size: 12px;
   font-weight: normal;
   line-height: 1;
@@ -41,6 +42,10 @@
 
   border: 0px solid #ddd;
   //   border-width: 1px 0;
+  &:hover {
+    // outline: 1px solid var(--bg-text-cl);
+    color: rgb(179, 179, 179);
+  }
 }
 
 .tui-pagination .tui-page-btn:hover {
@@ -97,7 +102,11 @@
   line-height: 26px;
   white-space: nowrap;
   font-weight: normal;
+  background-color: var(--bg-text-cl);
   //   border: 1px solid #ddd;
+  &:hover {
+    background-color: rgb(179, 179, 179);
+  }
 }
 
 .tui-pagination .tui-prev-is-ellip {
@@ -126,6 +135,7 @@
 
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip {
+  border-radius: 5px;
   padding: 0;
   line-height: 1;
 }
@@ -144,9 +154,10 @@
 .tui-last,
 .tui-first,
 .tui-prev {
-  background-color: var(--bg-btn-modal-cl);
+  color: var(--bg-text-cl);
+  // background-color: var(--bg-btn-modal-cl);
   border-radius: 5px;
-  color: var(--main-text-cl);
+  // color: var(--main-text-cl);
 }
 
 .tui-pagination .tui-ico-first {
@@ -159,7 +170,8 @@
 .tui-ico-prev,
 .tui-ico-next,
 .tui-ico-last {
-  fill: red;
+  // fill: red;
+  // color: green;
 }
 
 .tui-pagination .tui-ico-prev {
@@ -191,7 +203,7 @@
 
 .tui-pagination .tui-is-disabled:hover {
   background: #fff;
-  background-color: rgba(0, 0, 0, 0);
+  // background-color: rgba(0, 0, 0, 0);
   cursor: default;
 }
 

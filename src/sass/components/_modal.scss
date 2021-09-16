@@ -1,11 +1,5 @@
-.show {
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(0);
-}
-
-.modal.show {
-  transform: scale(1);
+.show{
+    display: none;
 }
 
 .modal {

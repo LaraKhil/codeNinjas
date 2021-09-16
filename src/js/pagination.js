@@ -1,14 +1,17 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-import filmApiService from './api-service';
+import {filmApiService} from './api-service';
 import renderPopularFilms from '../Templates/heroCartset.hbs';
 
 import emptyPoster from '../images/plug.png'
 import { normalData } from './api-service';
 
 const refList = document.querySelector('.hero-list');
+const refsPagination = document.querySelector('#pagination');
 
+
+refsPagination.classList.remove('is-hidden');
 
 function fetchRenderWithPagination() {
   filmApiService.fetchPopularFilms().then(data => {
@@ -31,7 +34,7 @@ function fetchRenderWithPagination() {
   });
 });
 }
-fetchRenderWithPagination();
+// fetchRenderWithPagination();
 
 function backToTop() {
     window.scrollTo(pageXOffset, 0);
