@@ -11,7 +11,6 @@
     transition: opacity var(--transition), visibility var(--transition);
 
     &__wrapper {
-        
         max-width: 280px;
         position: relative;
         margin: 0 auto;
@@ -39,7 +38,6 @@
             padding-right: 30px;
             padding-top: 50px;
             padding-bottom: 40px;
-            
         }
     }
 }
