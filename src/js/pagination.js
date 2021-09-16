@@ -8,7 +8,10 @@ import emptyPoster from '../images/plug.png'
 import { normalData } from './api-service';
 
 const refList = document.querySelector('.hero-list');
+const refsPagination = document.querySelector('#pagination');
 
+
+refsPagination.classList.remove('is-hidden');
 
 function fetchRenderWithPagination() {
   filmApiService.fetchPopularFilms().then(data => {
@@ -31,7 +34,7 @@ function fetchRenderWithPagination() {
   });
 });
 }
-fetchRenderWithPagination();
+// fetchRenderWithPagination();
 
 function backToTop() {
     window.scrollTo(pageXOffset, 0);
