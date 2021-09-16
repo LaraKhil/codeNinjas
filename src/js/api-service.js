@@ -239,6 +239,7 @@ export function normalData(data, refs, render, emptyPoster) {
     const releaseYear = new Date(movie.release_date).getFullYear();
     const fullPath = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     const poster = movie.poster_path ? fullPath : emptyPoster;
+
     return {
       ...movie,
       release_date: releaseYear,
@@ -251,16 +252,6 @@ export function normalData(data, refs, render, emptyPoster) {
     };
   });
 
-  // console.log(normalData);
-  // refList.innerHTML = '';
-
   const renderMarkup = render(normalData);
   refs.innerHTML = renderMarkup; 
-
-}
-
-// export default async function GetPopularFilms() {
-//   const mediaType = 'movie';
-//   const timeWindow = 'day';
-//   const requestParams = `trending/${mediaType}/${timeWindow}?=api_key=${API_KEY}`;
-// }
+};
