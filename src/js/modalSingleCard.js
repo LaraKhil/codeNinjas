@@ -16,6 +16,7 @@ function onFilmClick(e) {
       modalList.classList.add('show');
     }
   });
+
   
   if (e.target !== e.currentTarget){
     
@@ -41,24 +42,24 @@ function onFilmClick(e) {
           modalImg: liItem.querySelector('.hero-list__img'),
           modalBtnClose: document.querySelector('.js-modal__btn-close'),
           modalCloseBlur: document.querySelector('.modal__wrapper'),
-          modalGenreHtml: document.querySelector('.js-modal-genre')
+          modalGenreHtml: document.querySelector('.js-modal-genre'),
         };
         const { modalBtnClose, modalCloseBlur, modalImg, modalGenreHtml } = modalRefs;
-  
+
         const modalGenres = modalImg.dataset.genres;
         modalGenreHtml.innerHTML = modalGenres;
-        
+
         modalList.classList.remove('show', 'scale');
-        
+
         function onModalClose(e) {
-          if(e.target === e.currentTarget){
+          if (e.target === e.currentTarget) {
             modalList.classList.add('show', 'scale');
-          };
+          }
         }
-    
+
         modalBtnClose.addEventListener('click', onModalClose);
         modalCloseBlur.addEventListener('click', onModalClose);
-  
+
         modalBtnService.updateBtns(targetId);
         modalBtnService.refs.queueBtn.addEventListener('click', () =>
           onAddBtnClick(modalBtnService.localStorageKeys.queueFilm),
@@ -68,10 +69,12 @@ function onFilmClick(e) {
         );
         function onAddBtnClick(key) {
           modalBtnService.save(key);
+
         };
       };
       })
   }
 };
+
 
 refs.addEventListener('click', onFilmClick);
