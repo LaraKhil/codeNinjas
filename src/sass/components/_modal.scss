@@ -4,12 +4,7 @@
     visibility: hidden;
 }
 
-
-
-
 .modal{
-    
-
    &__wrapper{
         z-index: 2;
         position: fixed;
@@ -68,8 +63,6 @@
             
         }
     }
-
-   
 
     &__img-container{
     width: 240px;
