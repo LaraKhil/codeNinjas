@@ -27,8 +27,15 @@ function fetchRenderWithPagination() {
     filmApiService
       .fetchPopularFilms(currentPage)
       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
+    backToTop();
   });
 });
 }
 fetchRenderWithPagination();
-export default fetchRenderWithPagination;
+
+function backToTop() {
+    window.scrollTo(pageXOffset, 0);
+  }
+
+export { fetchRenderWithPagination, backToTop };
+// export default backToTop;
