@@ -146,7 +146,6 @@ const modalBtnService = {
   },
 };
 export default modalBtnService;
-
 // localStorage.clear();
 // console.log(modalBtn.refs.watchBtn);
 // modalBtn.refs.queueBtn.addEventListener('click', () => {

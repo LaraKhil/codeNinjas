@@ -222,6 +222,7 @@ const filmApiService = {
     const url = `${this.base_url}/${requestParams}`;
     return await this.fetchFilm(url);
   },
+
   async fetchFilm(url) {
     const response = await fetch(url);
     const data = await response.json();

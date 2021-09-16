@@ -3,6 +3,8 @@ import renderPopularFilms from '../Templates/heroCartset.hbs';
 import { debounce } from 'lodash';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import {fetchRenderWithPagination, backToTop} from './pagination'
+// import backToTop from './pagination'
 
 import { normalData } from './api-service';
 import emptyPoster from '../images/plug.png';
@@ -33,7 +35,8 @@ function onInput(e) {
 //       .then(() => filmApiService.fetchPopularFilms())
 //       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
 // =======
-    apiRenderFirstPage();
+apiRenderFirstPage();
+fetchRenderWithPagination();
 
   }
 
@@ -62,6 +65,7 @@ function onInput(e) {
       filmApiService
         .fetchFilmsByQuery(input, currentPage)
         .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
+      backToTop();
     });
 
     // normalData(results, refList, renderPopularFilms, emptyPoster);
