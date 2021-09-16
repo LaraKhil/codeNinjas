@@ -1,16 +1,20 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-import filmApiService from './api-service';
+import {filmApiService} from './api-service';
 import renderPopularFilms from '../Templates/heroCartset.hbs';
 
 import emptyPoster from '../images/plug.png'
 import { normalData } from './api-service';
 
 const refList = document.querySelector('.hero-list');
+const refsPagination = document.querySelector('#pagination');
 
-filmApiService.fetchPopularFilms().then(data => {
-  // console.log(data.total_results);
+
+refsPagination.classList.remove('is-hidden');
+
+function fetchRenderWithPagination() {
+  filmApiService.fetchPopularFilms().then(data => {
   const options = {
     totalItems: data.total_results,
     itemsPerPage: 20,
@@ -26,19 +30,15 @@ filmApiService.fetchPopularFilms().then(data => {
     filmApiService
       .fetchPopularFilms(currentPage)
       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
+    backToTop();
   });
-
-  // pagination.on('beforeMove', event => {
-  //   const currentPage = event.page;
-  //   filmApiService
-  //     .fetchAPIGenres()
-  //     .then(data => (filmApiService.genres = data.genres))
-  //     .then(() => filmApiService.fetchPopularFilms(currentPage))
-  //     .then(({ results }) => {
-  //       normalData(results, refList, renderPopularFilms, emptyPoster)
-  //     });
 });
-//
-//
-//
-// 
+}
+// fetchRenderWithPagination();
+
+function backToTop() {
+    window.scrollTo(pageXOffset, 0);
+  }
+
+export { fetchRenderWithPagination, backToTop };
+// export default backToTop;

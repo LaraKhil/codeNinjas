@@ -8,6 +8,7 @@ body {
   background-color: var(--bg-text-cl);
   color: var(--main-text-cl);
   font-family: Roboto, sans-serif;
+
 }
 
 h1,
@@ -36,7 +37,8 @@ a {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 ul {
