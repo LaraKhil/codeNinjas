@@ -1,9 +1,15 @@
 // modal
 .show{
-    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 
+
+
+
 .modal{
+    
+
    &__wrapper{
         z-index: 2;
         position: fixed;
@@ -17,6 +23,10 @@
         font-size: 12px;
         font-weight: 500;
         padding-bottom: 20px;
+     opacity: 1;
+    transition: opacity var(--transition), visibility var(--transition);
+    
+        
 
    @media screen and (min-width: 768px){
        padding-top: 0;
@@ -26,6 +36,7 @@
 
    
    &__hbs-wrapper{
+   
    display: flex;
    flex-direction: column;
    position: relative;
@@ -176,3 +187,4 @@
     }
 
 }
+
