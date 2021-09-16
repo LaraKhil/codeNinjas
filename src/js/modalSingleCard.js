@@ -1,4 +1,4 @@
-import filmApiService from './api-service';
+import {filmApiService} from './api-service';
 import renderModalWindow from '../Templates/modalTemplate.hbs';
 import { refs } from '../js/cartset';
 import modalBtnService from './modal-btn';
@@ -8,6 +8,9 @@ const modalList = document.querySelector('.modal');
 const modalHBS = document.querySelector('.modal__hbs-wrapper');
 
 function onFilmClick(e) {
+  if (e.target === e.currentTarget){
+    return
+  };
   const targetId = e.target.id;
 
   document.addEventListener('keydown', (e) => {
@@ -17,9 +20,6 @@ function onFilmClick(e) {
     }
   });
 
-  
-  if (e.target !== e.currentTarget){
-    
     filmApiService.fetchFilmsById(targetId)
     .then(data =>{
       const fullPath = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
@@ -73,7 +73,6 @@ function onFilmClick(e) {
         };
       };
       })
-  }
 };
 
 

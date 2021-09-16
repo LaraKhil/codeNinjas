@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-import filmApiService from './api-service';
+import {filmApiService} from './api-service';
 import renderPopularFilms from '../Templates/heroCartset.hbs';
 
 import emptyPoster from '../images/plug.png'
