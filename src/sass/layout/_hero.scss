@@ -10,7 +10,7 @@
     margin-top: 20px;
     // cursor: pointer;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     @media screen and (min-width: 768px) {
       flex-basis: calc(100% / 2 - 30px);
       margin-left: 30px;
@@ -26,26 +26,25 @@
     transform: scale(1.1);
   }
 
-
   &__img {
     border-radius: 5px;
     height: 398px;
     width: 100%;
     cursor: pointer;
     object-fit: cover;
-  
 
     @media screen and (min-width: 768px) {
       width: 293px;
     }
   }
-  
+
   &__title {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
     text-transform: uppercase;
     margin-top: 10px;
+    color: azure;
   }
   &__desc {
     font-weight: 500;
@@ -67,10 +66,43 @@
   color: yellow;
 }
 
-
-.hero{
+.hero {
+  // background-image: radial-gradient(
+  //   circle,
+  //   #5a3874,
+  //   #583e70,
+  //   #56446b,
+  //   #554966,
+  //   #554e60,
+  //   #514d5a,
+  //   #4d4c54,
+  //   #4b4b4d,
+  //   #444446,
+  //   #3d3d3e,
+  //   #373737,
+  //   #303030
+  // );
+  background-image: radial-gradient(
+    circle,
+    #6d2e00,
+    #612c00,
+    #562a00,
+    #4c2700,
+    #422400,
+    #3c1f03,
+    #361b05,
+    #2f1707,
+    #27120a,
+    #1e0d0b,
+    #130708,
+    #000000
+  );
+  // background-image: url(../images/charcoal-background.jpg);
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
   padding-top: 20px;
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     padding-top: 60px;
   }
 }

@@ -216,6 +216,7 @@
   font-size: 12px;
   text-align: center;
   color: #333;
+
   //   border: 0;
   outline: none;
 }
@@ -230,4 +231,8 @@
   height: 12px;
   padding: 8px 0 6px;
   vertical-align: top;
+}
+
+.tui-pagination .tui-page-btn {
+  color: #ddd;
 }
