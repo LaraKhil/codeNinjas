@@ -1,8 +1,11 @@
 .show{
-    display: none;
+   display: none;
 }
 
+
+
 .modal {
+
   &__wrapper {
     z-index: 2;
     position: fixed;
