@@ -249,12 +249,12 @@ export function normalData(data, refs, render, emptyPoster) {
     };
   });
 
-
   // console.log(normalData);
   // refList.innerHTML = '';
 
   const renderMarkup = render(normalData);
   refs.innerHTML = renderMarkup; 
+
 }
 
 // export default async function GetPopularFilms() {

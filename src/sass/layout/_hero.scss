@@ -15,8 +15,9 @@
       flex-basis: calc(100% / 2 - 30px);
       margin-left: 30px;
       margin-top: 30px;
+      // background-color: green;
     }
-    
+
     @media screen and (min-width: 1024px) {
       flex-basis: calc(100% / 3 - 30px);
     }
