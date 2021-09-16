@@ -1,15 +1,8 @@
 // modal
 .show{
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(0);
+    display: none;
 }
 
-.modal.show{
-
-  transform: scale(1);
-//   transition: transform 0.500s linear;
-}
 
 .modal{
      transition: transform  0.500s linear;
