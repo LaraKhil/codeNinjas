@@ -1,6 +1,6 @@
 .header {
   height: 230px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   font-size: 25px;
   padding-top: 45px;
   padding-bottom: 45px;
@@ -19,7 +19,7 @@
   @media screen and (min-width: 768px) {
     padding-top: 40px;
     padding-bottom: 75px;
-    margin-bottom: 60px;
+    // margin-bottom: 60px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header-table-min.jpg);
     @media screen and (min-device-pixel-ratio: 2),
@@ -187,13 +187,29 @@
   }
 }
 .error {
+  margin-top: 5px;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.17;
   align-items: center;
   color: #ff001b;
+  text-align: center;
 }
 .btn-box {
   margin-top: 45px;
+}
+.error {
+  width: 100%;
+  height: 100%;
+  // color: #ff3d00;
+  animation: nev 0.4s infinite alternate;
+  @keyframes nev {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }
