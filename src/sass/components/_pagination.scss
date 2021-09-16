@@ -24,9 +24,7 @@
 
 .tui-pagination .tui-page-btn {
   width: 20px;
-  @media screen and(min-width: 768px) {
-    width: 28px;
-  }
+
   display: inline-block;
   position: relative;
 
@@ -42,6 +40,10 @@
 
   border: 0px solid #ddd;
   //   border-width: 1px 0;
+  @media screen and(min-width: 768px) {
+    width: 40px;
+    padding: 15px 0 14px;
+  }
   &:hover {
     // outline: 1px solid var(--bg-text-cl);
     color: rgb(179, 179, 179);
@@ -82,11 +84,11 @@
 }
 
 .tui-pagination .tui-first-child.tui-is-selected {
-  //   border-left: 1px solid #4b96e6;
+  border-left: none;
 }
 
 .tui-pagination .tui-last-child.tui-is-selected {
-  //   border-right: 1px solid #4b96e6;
+  border-right: none;
 }
 
 .tui-pagination .tui-first,
@@ -103,7 +105,12 @@
   white-space: nowrap;
   font-weight: normal;
   background-color: var(--bg-text-cl);
+  @media screen and(min-width: 768px) {
+    height: 40px;
+    line-height: 40px;
+  }
   //   border: 1px solid #ddd;
+
   &:hover {
     background-color: rgb(179, 179, 179);
   }
@@ -136,8 +143,11 @@
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip {
   border-radius: 5px;
-  padding: 0;
+  // padding: 0;
   line-height: 1;
+  @media screen and(min-width: 768px) {
+    padding-top: 6px;
+  }
 }
 
 .tui-pagination .tui-next,
