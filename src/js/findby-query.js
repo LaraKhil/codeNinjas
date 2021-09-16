@@ -1,4 +1,4 @@
-import filmApiService from './api-service';
+import {filmApiService} from './api-service';
 import renderPopularFilms from '../Templates/heroCartset.hbs';
 import { debounce } from 'lodash';
 import Pagination from 'tui-pagination';
