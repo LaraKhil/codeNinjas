@@ -1,7 +1,11 @@
 import modalBtnService from './modal-btn';
 import filmListTmpl from '../Templates/heroCartset.hbs';
 import { apiRenderFirstPage } from './cartset';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+import {backToTop} from './pagination'
 const Refs = {
+  pagination: document.querySelector('#pagination'),
   homeHeader: document.querySelector('#header-menu-home'),
   libreryHeader: document.querySelector('#header-menu-librery'),
   headerStyle: document.querySelector('#btn-librery'),
@@ -39,8 +43,38 @@ function onLibreryHeaderBtn(e) {
 function render(typeFilmList = modalBtnService.localStorageKeys.watchedFilm.name) {
   const refs = document.querySelector('.hero-list');
   let data = modalBtnService.load(typeFilmList);
-  const renderMarkup = filmListTmpl(data);
+  Refs.pagination.classList.remove('is-hidden');
+  if (data.length <= 20) {
+      Refs.pagination.classList.add('is-hidden');
+  }
+  const options = {
+      totalItems: data.length,
+      itemsPerPage: 20,
+      visiblePages: 5,
+      page: 1,
+      centerAlign: true,
+    };
+  
+  const pagination = new Pagination('pagination', options);
+  //
+  let firstFiml = 0;
+  let lastFilm = 20;
+  const newData = data.slice(firstFiml, lastFilm);
+    //
+  const renderMarkup = filmListTmpl(newData);
   refs.innerHTML = renderMarkup;
+
+  pagination.on('beforeMove', event => {
+    const currentPage = event.page;
+    let firstFiml = (currentPage - 1) * 20;
+    let lastFilm = firstFiml + 20;
+
+    const newData = data.slice(firstFiml, lastFilm);
+    
+    const renderMarkup = filmListTmpl(newData);
+    refs.innerHTML = renderMarkup;
+    backToTop();
+  })
 }
 
 btnRefs.queueBtn.addEventListener('click', e => {
