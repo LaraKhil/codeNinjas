@@ -2,26 +2,41 @@ import filmApiService from './api-service';
 import renderModalWindow from '../Templates/modalTemplate.hbs';
 import { refs } from '../js/cartset';
 import modalBtnService from './modal-btn';
+import emptyPoster from '../images/plug.png';
 
 const modalList = document.querySelector('.modal');
 const modalHBS = document.querySelector('.modal__hbs-wrapper');
 
 function onFilmClick(e) {
   const targetId = e.target.id;
-  console.log(e);
-  document.addEventListener('keydown', e => {
+
+  document.addEventListener('keydown', (e) => {
     const keyEsc = e.key === 'Escape';
     if (keyEsc) {
       modalList.classList.add('show');
     }
   });
 
-  if (e.target !== e.currentTarget) {
-    filmApiService.fetchFilmsById(targetId).then(data => {
-      console.log(data.poster);
-      if (data.status === 'Released') {
+  
+  if (e.target !== e.currentTarget){
+    
+    filmApiService.fetchFilmsById(targetId)
+    .then(data =>{
+      const fullPath = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+      const poster = data.poster_path ? fullPath : emptyPoster;
+
+      return {
+        ...data,
+        poster
+      }
+    })
+    .then(data => {
+
+      if (data.status === 'Released'){
+
         const renderModal = renderModalWindow(data);
         modalHBS.innerHTML = renderModal;
+
         const liItem = e.target.closest('li');
         const modalRefs = {
           modalImg: liItem.querySelector('.hero-list__img'),
@@ -54,10 +69,12 @@ function onFilmClick(e) {
         );
         function onAddBtnClick(key) {
           modalBtnService.save(key);
-        }
-      }
-    });
+
+        };
+      };
+      })
   }
-}
+};
+
 
 refs.addEventListener('click', onFilmClick);
