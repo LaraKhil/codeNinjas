@@ -121,8 +121,9 @@ const filmApiService = {
     }
    */
   /**{query} */
-  async fetchFilmsByQuery(query) {
+  async fetchFilmsByQuery(query, page = 1) {
     this.setQuery(query);
+    this.setPage(page);
     const requestParams = `search/movie?api_key=${this.api_key}&query=${this.query}&page=${this.page}`;
     const url = `${this.base_url}/${requestParams}`;
     return await this.fetchFilm(url);
