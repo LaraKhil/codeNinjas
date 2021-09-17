@@ -6,6 +6,7 @@ const modalBtnService = {
   },
   genres: '',
   release_date: '',
+  rating: '-',
   filmId: undefined,
   refs: {
     modal: document.querySelector('.modal'),
@@ -20,11 +21,13 @@ const modalBtnService = {
     this.resetKeysExist();
     this.filmId = id;
     const liElement = document.getElementById(this.filmId);
+    // this.rating = liElement.;
     this.genres = liElement.dataset.genres;
     this.release_date = liElement.dataset.year;
     this.refs.modal = document.querySelector('.modal');
     this.refs.watchBtn = document.querySelector('[data-action="addWatch"]');
     this.refs.queueBtn = document.querySelector('[data-action="addQueue"]');
+    this.rating = this.refs.modal.querySelector('.modal__rating').textContent;
     ////////////////
     this.updateExistOnLoad(this.localStorageKeys.watchedFilm);
     this.updateExistOnLoad(this.localStorageKeys.queueFilm);
@@ -41,67 +44,69 @@ const modalBtnService = {
       btn = this.refs.watchBtn;
     }
     // console.log(key.textContent);
-    key.exist
-      ? (btn.textContent = `DELETE FROM ${key.textContent}`)
-      : (btn.textContent = `ADD TO ${key.textContent}`);
+    // key.exist
+    //   ? (btn.textContent = `DELETE FROM ${key.textContent}`)
+    //   : (btn.textContent = `ADD TO ${key.textContent}`);
+    ///updated code
+    btn.textContent = key.exist ? `DELETE FROM ${key.textContent}` : `ADD TO ${key.textContent}`;
   },
   /**
    * Проверяет наличие id в localStorage
    */
   updateExistOnLoad(key) {
     let keyDataExist = this.load(key.name);
-    if (keyDataExist) {
-      if (this.checkExistingId(this.filmId, keyDataExist) > -1) {
-        key.exist = true;
-        this.updateModalBtnContent(key);
-      }
+    /////////updated code
+    if (keyDataExist && this.checkExistingId(this.filmId, keyDataExist) > -1) {
+      key.exist = true;
+      this.updateModalBtnContent(key);
     }
   },
   /**
    * Сохраняет в localStorage данные фильма по переданному ключу key: { name: 'queueList', exist: false, textContent: 'QUEUE' }
    */
   save(key) {
+    let arr = [];
+    let data = this.load(key.name);
+    if (data) {
+      arr = [...data];
+    }
+    if (key.exist) {
+      arr = this.removeFilm(this.filmId, arr);
+
+      /////////проверка на какой странице находимся
+      const header = document.querySelector('#header');
+      // console.log());
+      if (
+        header.classList.contains('librery') &&
+        document
+          .getElementById(`btn-header-${key.textContent.toLowerCase()}`)
+          .classList.contains('btn--active')
+      ) {
+        console.log('delete');
+        const filmCard = document.getElementById(this.filmId);
+        if (filmCard) {
+          filmCard.parentElement.remove();
+        }
+      }
+    } else {
+      const filmObj = this.getfilmData();
+      arr.push(filmObj);
+      if (
+        header.classList.contains('librery') &&
+        document
+          .getElementById(`btn-header-${key.textContent.toLowerCase()}`)
+          .classList.contains('btn--active') &&
+        !document.getElementById(this.filmId)
+      ) {
+        const refsList = document.querySelector('.hero-list');
+        const liMarkup = filmItemTmpl([filmObj]);
+        // console.log(liMarkup);
+        refsList.insertAdjacentHTML('beforeend', liMarkup);
+      }
+    }
+
+    /////////updated code
     try {
-      let arr = [];
-      let data = this.load(key.name);
-      if (data) {
-        arr = [...data];
-      }
-      if (key.exist) {
-        arr = this.removeFilm(this.filmId, arr);
-
-        /////////проверка на какой странице находимся
-        const header = document.querySelector('#header');
-        // console.log());
-        if (
-          header.classList.contains('librery') &&
-          document
-            .getElementById(`btn-header-${key.textContent.toLowerCase()}`)
-            .classList.contains('btn--active')
-        ) {
-          console.log('delete');
-          const filmCard = document.getElementById(this.filmId);
-          if (filmCard) {
-            filmCard.parentElement.remove();
-          }
-        }
-      } else {
-        const filmObj = this.getfilmData();
-        arr.push(filmObj);
-        if (
-          header.classList.contains('librery') &&
-          document
-            .getElementById(`btn-header-${key.textContent.toLowerCase()}`)
-            .classList.contains('btn--active') &&
-          !document.getElementById(this.filmId)
-        ) {
-          const refsList = document.querySelector('.hero-list');
-          const liMarkup = filmItemTmpl([filmObj]);
-          // console.log(liMarkup);
-          refsList.insertAdjacentHTML('beforeend', liMarkup);
-        }
-      }
-
       const serializedState = JSON.stringify(arr);
 
       localStorage.setItem(key.name, serializedState);
@@ -147,6 +152,7 @@ const modalBtnService = {
       poster: modal.querySelector('.modal__img').getAttribute('src'),
       title: modal.querySelector('.modal__title').textContent,
       genres: this.genres,
+      localRating: this.rating,
       release_date: this.release_date,
       // genres: modal.querySelector('[data-description="genres"]').textContent,
       // genres: modal.querySelector('[data-description="genres"]').textContent,
