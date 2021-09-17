@@ -11,9 +11,11 @@ const refList = document.querySelector('.hero-list');
 const refsPagination = document.querySelector('#pagination');
 
 
-refsPagination.classList.remove('is-hidden');
+// refsPagination.classList.remove('is-hidden');
 
 function fetchRenderWithPagination() {
+  // refsPagination.classList.add('is-hidden');
+  
   filmApiService.fetchPopularFilms().then(data => {
   const options = {
     totalItems: data.total_results,
@@ -32,6 +34,7 @@ function fetchRenderWithPagination() {
       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
     backToTop();
   });
+    refsPagination.classList.remove('is-hidden');
 });
 }
 // fetchRenderWithPagination();
