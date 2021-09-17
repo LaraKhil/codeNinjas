@@ -5,7 +5,11 @@
     <p class='hero-list__desc'>
       {{genres}}
       |
-      {{release_date}}
+      {{release_date}}   
+      {{#if localRating}}
+          <span class="library__rating">{{localRating}}</span>
+      {{/if}}
     </p>
+
   </li>
 {{/each}}

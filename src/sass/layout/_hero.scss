@@ -1,8 +1,4 @@
 .hero {
-  // background-color: #2d3436;
-  // background-image: linear-gradient(315deg, #181717 0%, #000000 74%);
-  //  background-color: #2d3436;
-  // background-image: linear-gradient(315deg, #111111 0%, #000000 74%);
   padding-bottom: 60px;
   background-image: radial-gradient(
     circle,
@@ -19,6 +15,7 @@
     #130708,
     #000000
   );
+
 }
 .hero-list {
   @media screen and (min-width: 768px) {
@@ -95,10 +92,13 @@
 }
 
 .back_to_top {
+
+  display: none;
+
   @media screen and (min-width: 768px) {
     position: fixed;
-    bottom: 10%;
-    right: 5%;
+    bottom: 18%;
+    right: 2%;
     z-index: 9999;
     width: 60px;
     height: 60px;
@@ -108,14 +108,10 @@
     color: #444;
     cursor: pointer;
     border-radius: 50%;
-    display: none;
+    // display: none;
     border: none;
   }
 }
-
-// .back_to_top:hover {
-
-// }
 
 .buttonUP:hover {
   fill: var(--bg-text-cl);
@@ -124,9 +120,24 @@
 }
 
 .back_to_top-show {
-  display: block;
+  @media screen and (min-width: 768px){
+    display: block;
+  }
 }
 
 .buttonUP {
   fill: var(--accent-cl);
 }
+
+
+//library rating code
+.library__rating {
+  background-color: var(--accent-cl);
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--bg-text-cl);
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+
