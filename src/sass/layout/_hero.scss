@@ -81,6 +81,7 @@
 
 .back_to_top {
   display: none;
+
   @media screen and (min-width: 768px) {
     position: fixed;
     bottom: 18%;
@@ -114,3 +115,15 @@
 .buttonUP {
   fill: var(--accent-cl);
 }
+
+
+//library rating code
+.library__rating {
+  background-color: var(--accent-cl);
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--bg-text-cl);
+  border-radius: 5px;
+  margin-left: 5px;
+}
+

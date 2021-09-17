@@ -6,6 +6,7 @@ const modalBtnService = {
   },
   genres: '',
   release_date: '',
+  rating: '-',
   filmId: undefined,
   refs: {
     modal: document.querySelector('.modal'),
@@ -20,11 +21,13 @@ const modalBtnService = {
     this.resetKeysExist();
     this.filmId = id;
     const liElement = document.getElementById(this.filmId);
+    // this.rating = liElement.;
     this.genres = liElement.dataset.genres;
     this.release_date = liElement.dataset.year;
     this.refs.modal = document.querySelector('.modal');
     this.refs.watchBtn = document.querySelector('[data-action="addWatch"]');
     this.refs.queueBtn = document.querySelector('[data-action="addQueue"]');
+    this.rating = this.refs.modal.querySelector('.modal__rating').textContent;
     ////////////////
     this.updateExistOnLoad(this.localStorageKeys.watchedFilm);
     this.updateExistOnLoad(this.localStorageKeys.queueFilm);
@@ -147,6 +150,7 @@ const modalBtnService = {
       poster: modal.querySelector('.modal__img').getAttribute('src'),
       title: modal.querySelector('.modal__title').textContent,
       genres: this.genres,
+      localRating: this.rating,
       release_date: this.release_date,
       // genres: modal.querySelector('[data-description="genres"]').textContent,
       // genres: modal.querySelector('[data-description="genres"]').textContent,
