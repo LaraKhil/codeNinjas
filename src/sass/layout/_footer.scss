@@ -1,1 +1,40 @@
 // footer
+.footer {
+  display: flex;
+  align-items: center;
+  color: var(--h-footer-cl);
+  background-color: var(--bg-footer);
+  padding-bottom: 29px;
+  padding-top: 29px;
+
+  &__link {
+    margin-left: 5px;
+    color: var(--h-footer-cl);
+    text-decoration: underline;
+  }
+  &__svgHeart {
+    width: 14px;
+    height: 12.75px;
+    margin: 0px 10px;
+    @media (min-width: 768px) {
+      margin-bottom: auto;
+      margin-top: auto;
+    }
+  }
+  &__text {
+    padding-bottom: 10px;
+    @media (min-width: 768px) {
+      padding-right: 5px;
+      padding-bottom: 0px;
+    }
+  }
+  &__container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.17;
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  }
+}
