@@ -16,6 +16,8 @@ const refList = document.querySelector('.hero-list');
 
 const refsInput = document.querySelector('#header-input');
 const refsPagination = document.querySelector('#pagination');
+const refsLoader = document.querySelector('.js-loader');
+
 
 refsInput.addEventListener('input', debounce(onInput, 500));
 
@@ -23,15 +25,15 @@ function onInput(e) {
   const input = e.target.value;
   refsError.classList.add('is-hidden');
   if (input === '') {
-    // <<<<<<< add-animation
-    //     return filmApiService
-    //       .fetchAPIGenres()
-    //       .then(data => (filmApiService.genres = data.genres))
-    //       .then(() => filmApiService.fetchPopularFilms())
-    //       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
-    // =======
-    apiRenderFirstPage();
-    fetchRenderWithPagination();
+
+    refsPagination.classList.add('is-hidden');
+    refsLoader.classList.remove('is-hidden');
+    refList.innerHTML = "";
+    setTimeout(apiRenderFirstPage, 500);
+    setTimeout(fetchRenderWithPagination, 550);
+    return;
+
+
   }
 
   filmApiService.fetchFilmsByQuery(input).then(({ results, total_results }) => {

@@ -51,6 +51,7 @@ export { filmApiService };
 
 export function normalData(data, refs, render, emptyPoster) {
   const normalData = data.map(movie => {
+
     const releaseDate = new Date(movie.release_date).getFullYear();
     const releaseYear = releaseDate ? releaseDate : '42';
     const fullPath = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
