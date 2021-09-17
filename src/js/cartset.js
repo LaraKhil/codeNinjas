@@ -9,23 +9,28 @@ export const refs = document.querySelector('.hero-list');
 const refList = document.querySelector('.hero-list');
 const refGoUp = document.querySelector('.back_to_top');
 const refsPagination = document.querySelector('#pagination');
+const refsLoader = document.querySelector('.js-loader');
 
 
 window.addEventListener('scroll', trackScroll);
 refGoUp.addEventListener('click', backToTop2);
 
 export function apiRenderFirstPage() {
-  refsPagination.classList.remove('is-hidden');
-  
+  refsPagination.classList.add('is-hidden');
   filmApiService
     .fetchAPIGenres()
     .then(data => (filmApiService.genres = data.genres))
     .then(() => filmApiService.fetchPopularFilms())
-    .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
-  fetchRenderWithPagination();
+    .then(({ results }) => {
+      normalData(results, refList, renderPopularFilms, emptyPoster);
+      setTimeout(fetchRenderWithPagination, 50);
+      refsLoader.classList.add('is-hidden');
+    });
+  // setTimeout(fetchRenderWithPagination, 50);
+  
 };
 
-apiRenderFirstPage();
+setTimeout(apiRenderFirstPage, 500);
 
 
 
