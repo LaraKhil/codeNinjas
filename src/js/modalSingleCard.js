@@ -54,6 +54,7 @@ function onFilmClick(e) {
         modalList.classList.remove('show', 'scale');
         //---TRAILER-BUTTON-START---
 
+
         console.log(data.videos);
         const openTrailer = () => {
           const instance = basicLightbox.create(
@@ -70,6 +71,7 @@ function onFilmClick(e) {
           trailerButton.addEventListener('click', openTrailer);
         }
 
+        
         //---TRAILER-BUTTON-END---
         function onModalClose(e) {
           if (e.target === e.currentTarget) {
