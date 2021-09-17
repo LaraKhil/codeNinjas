@@ -40,6 +40,8 @@ function onFilmClick(e) {
         const renderModal = renderModalWindow(data);
         modalHBS.innerHTML = renderModal;
 
+        modalHBS.innerHTML = renderModal;
+
         const liItem = e.target.closest('li');
         const modalRefs = {
           modalImg: liItem.querySelector('.hero-list__img'),
@@ -52,10 +54,9 @@ function onFilmClick(e) {
         const modalGenres = modalImg.dataset.genres;
         modalGenreHtml.innerHTML = modalGenres;
 
-        modalList.classList.remove('show', 'scale');
+        modalList.classList.remove('show');
         //---TRAILER-BUTTON-START---
 
-        console.log(data.videos);
         const openTrailer = () => {
           const instance = basicLightbox.create(
             `<iframe src="https://www.youtube.com/embed/${data.videos.results[0].key}" width="560" height="315" frameborder="0"></iframe>`,
