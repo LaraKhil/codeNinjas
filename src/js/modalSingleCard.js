@@ -5,7 +5,8 @@ import modalBtnService from './modal-btn';
 import emptyPoster from '../images/plug.png';
 //---conecting-lightbox---
 import * as basicLightbox from 'basiclightbox';
-import 'basicLightbox/dist/basicLightbox.min.css';
+import 'basiclightbox/dist/basicLightbox.min.css';
+
 //---conecting-lightbox---
 
 const modalList = document.querySelector('.modal');
