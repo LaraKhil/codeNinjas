@@ -4,6 +4,7 @@ import { apiRenderFirstPage } from './cartset';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { backToTop } from './pagination';
+
 const Refs = {
   pagination: document.querySelector('#pagination'),
   homeHeader: document.querySelector('#header-menu-home'),

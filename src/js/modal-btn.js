@@ -43,11 +43,7 @@ const modalBtnService = {
     } else if (key === this.localStorageKeys.watchedFilm) {
       btn = this.refs.watchBtn;
     }
-    // console.log(key.textContent);
-    // key.exist
-    //   ? (btn.textContent = `DELETE FROM ${key.textContent}`)
-    //   : (btn.textContent = `ADD TO ${key.textContent}`);
-    ///updated code
+
     btn.textContent = key.exist ? `DELETE FROM ${key.textContent}` : `ADD TO ${key.textContent}`;
   },
   /**
@@ -100,7 +96,6 @@ const modalBtnService = {
       ) {
         const refsList = document.querySelector('.hero-list');
         const liMarkup = filmItemTmpl([filmObj]);
-        // console.log(liMarkup);
         refsList.insertAdjacentHTML('beforeend', liMarkup);
       }
     }

@@ -20,15 +20,12 @@
      opacity: 1;
     transition: opacity var(--transition), visibility var(--transition);
     
-        
-
    @media screen and (min-width: 768px){
        padding-top: 0;
        padding-bottom: 0;
         }
     }
 
-   
    &__hbs-wrapper{
    
    display: flex;
@@ -170,7 +167,7 @@
 
     &__description{
         line-height: 1.6;
-        margin-bottom: 21px;
+        margin-bottom: 40px;
     }
     
 
@@ -178,4 +175,12 @@
         display: flex;
     }
 
+    &__trailer_button{
+        margin: 0 auto;
+        color: var(--accent-cl);
+        border: none;
+        background-color: var(--main-text-cl);
+    }
+
 }
+
