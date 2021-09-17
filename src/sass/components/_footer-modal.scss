@@ -22,7 +22,7 @@
         padding-bottom: 25px;
         background-color: var(--bg-text-cl);
         transform: translateY(30px);
-        border-radius: 20px;
+        border-radius: 5px;
         background: rgb(94, 94, 94, 0.8);;
 
         @media screen and (min-width: 768px){
@@ -50,6 +50,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin-bottom: -15px;
 
     @media screen and (min-width: 768px){
         flex-direction: row;
@@ -62,25 +64,26 @@
 }
 
 .fcard-container {
-    width: 240px;
-    border-radius: 5%;
+    flex-basis: 100%;
+    border-radius: 5px;
     border-width: 10px;
     margin-bottom: 15px;
     border: 5px solid rgb(48, 48, 48);
     padding-bottom: 15px;
     background: rgb(48, 48, 48);
-    margin-right: 15px;
     
 
     @media screen and (min-width: 768px){
-        width: 220px;
+        flex-basis: calc((100% / 2) - 30px);
+        // width: 220px;
+         margin-right: 15px;
     }
 }
 
 .card-img {
-    display: block;
     margin-bottom: 8px;
-    border-radius: 5%;
+    border-radius: 5px;
+    height: 356px;
 }
 
 .fname {
