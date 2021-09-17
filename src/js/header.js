@@ -50,6 +50,12 @@ function onLibreryHeaderBtn(e) {
 function render(typeFilmList = modalBtnService.localStorageKeys.watchedFilm.name) {
   const refs = document.querySelector('.hero-list');
   let data = modalBtnService.load(typeFilmList);
+
+  ////////////Проверка на наличие массива
+  if (!data) {
+    data = [];
+  }
+
   Refs.pagination.classList.remove('is-hidden');
   if (data.length <= 20) {
     Refs.pagination.classList.add('is-hidden');
