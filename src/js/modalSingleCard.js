@@ -1,39 +1,41 @@
-import {filmApiService} from './api-service';
+import { filmApiService } from './api-service';
 import renderModalWindow from '../Templates/modalTemplate.hbs';
 import { refs } from '../js/cartset';
 import modalBtnService from './modal-btn';
 import emptyPoster from '../images/plug.png';
+//---conecting-lightbox---
+import * as basicLightbox from 'basiclightbox';
+import 'basicLightbox/dist/basicLightbox.min.css';
+//---conecting-lightbox---
 
 const modalList = document.querySelector('.modal');
 const modalHBS = document.querySelector('.modal__hbs-wrapper');
 
 function onFilmClick(e) {
-  if (e.target === e.currentTarget){
-    return
-  };
+  if (e.target === e.currentTarget) {
+    return;
+  }
   const targetId = e.target.id;
 
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     const keyEsc = e.key === 'Escape';
     if (keyEsc) {
       modalList.classList.add('show');
     }
   });
 
-    filmApiService.fetchFilmsById(targetId)
-    .then(data =>{
+  filmApiService
+    .fetchFilmsById(targetId)
+    .then(data => {
       const fullPath = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
       const poster = data.poster_path ? fullPath : emptyPoster;
-
       return {
         ...data,
-        poster
-      }
+        poster,
+      };
     })
     .then(data => {
-
-      if (data.status === 'Released'){
-
+      if (data.status === 'Released') {
         const renderModal = renderModalWindow(data);
         modalHBS.innerHTML = renderModal;
 
@@ -50,7 +52,25 @@ function onFilmClick(e) {
         modalGenreHtml.innerHTML = modalGenres;
 
         modalList.classList.remove('show', 'scale');
+        //---TRAILER-BUTTON-START---
 
+        console.log(data.videos);
+        const openTrailer = () => {
+          const instance = basicLightbox.create(
+            `<iframe src="https://www.youtube.com/embed/${data.videos.results[0].key}" width="560" height="315" frameborder="0"></iframe>`,
+          );
+          instance.show();
+        };
+
+        if (data.videos !== null && data.videos.results[0].site === 'YouTube') {
+          const trailerContainer = modalList.querySelector('.modal__trailer_container');
+          const trailerButton = modalList.querySelector('.modal__trailer_button');
+
+          trailerContainer.classList.remove('is-hidden');
+          trailerButton.addEventListener('click', openTrailer);
+        }
+
+        //---TRAILER-BUTTON-END---
         function onModalClose(e) {
           if (e.target === e.currentTarget) {
             modalList.classList.add('show', 'scale');
@@ -69,11 +89,9 @@ function onFilmClick(e) {
         );
         function onAddBtnClick(key) {
           modalBtnService.save(key);
-
-        };
-      };
-      })
-};
-
+        }
+      }
+    });
+}
 
 refs.addEventListener('click', onFilmClick);
