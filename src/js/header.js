@@ -4,6 +4,10 @@ import { apiRenderFirstPage } from './cartset';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { backToTop } from './pagination';
+const refsLoader = document.querySelector('.js-loader');
+const refList = document.querySelector('.hero-list');
+const refsPagination = document.querySelector('#pagination');
+
 const Refs = {
   pagination: document.querySelector('#pagination'),
   homeHeader: document.querySelector('#header-menu-home'),
@@ -32,7 +36,11 @@ function onHomeHeaderBtn(e) {
   Refs.headerStyleLibrery.classList.remove('librery');
   Refs.activeLinckHome.classList.add('header__link-home');
   Refs.activeLinckLibrery.classList.remove('header__link-home');
-  apiRenderFirstPage();
+  
+  refsPagination.classList.add('is-hidden');
+  refsLoader.classList.remove('is-hidden');
+  refList.innerHTML = "";
+  setTimeout(apiRenderFirstPage, 500);
 }
 function onLibreryHeaderBtn(e) {
   e.preventDefault();
