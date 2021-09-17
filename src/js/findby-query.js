@@ -1,20 +1,15 @@
-import {filmApiService} from './api-service';
+import { filmApiService } from './api-service';
 import renderPopularFilms from '../Templates/heroCartset.hbs';
 import { debounce } from 'lodash';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import {fetchRenderWithPagination, backToTop} from './pagination'
+import { fetchRenderWithPagination, backToTop } from './pagination';
 // import backToTop from './pagination'
 
 import { normalData } from './api-service';
 import emptyPoster from '../images/plug.png';
 
-
-
 import { apiRenderFirstPage } from './cartset';
-
-
-
 
 const refsError = document.querySelector('#error-form');
 const refList = document.querySelector('.hero-list');
@@ -28,16 +23,15 @@ function onInput(e) {
   const input = e.target.value;
   refsError.classList.add('is-hidden');
   if (input === '') {
-// <<<<<<< add-animation
-//     return filmApiService
-//       .fetchAPIGenres()
-//       .then(data => (filmApiService.genres = data.genres))
-//       .then(() => filmApiService.fetchPopularFilms())
-//       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
-// =======
-apiRenderFirstPage();
-fetchRenderWithPagination();
-
+    // <<<<<<< add-animation
+    //     return filmApiService
+    //       .fetchAPIGenres()
+    //       .then(data => (filmApiService.genres = data.genres))
+    //       .then(() => filmApiService.fetchPopularFilms())
+    //       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
+    // =======
+    apiRenderFirstPage();
+    fetchRenderWithPagination();
   }
 
   filmApiService.fetchFilmsByQuery(input).then(({ results, total_results }) => {
@@ -70,5 +64,4 @@ fetchRenderWithPagination();
 
     // normalData(results, refList, renderPopularFilms, emptyPoster);
   });
-  
 }

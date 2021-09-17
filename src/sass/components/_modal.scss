@@ -1,5 +1,6 @@
-.show{
-    display: none;
+.show {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .modal {
@@ -103,11 +104,15 @@
     border-radius: 50%;
     transition: 0.6s;
 
-    &:hover,
-    &:active {
-      color: var(--bg-text-cl);
+    &:hover {
+      color: var(--accent-cl);
       transform: rotate(180deg);
-      background: var(--accent-cl);
+    }
+
+    &:active {
+      color: white;
+      background-color: var(--accent-cl);
+      transform: rotate(180deg);
     }
   }
 
@@ -160,5 +165,15 @@
 
   &__btn-container {
     display: flex;
+  }
+
+  //
+  //trailer button
+  //
+  &__trailer_container {
+    background-color: red;
+  }
+  &__trailer_button {
+    background-color: green;
   }
 }

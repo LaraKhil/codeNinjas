@@ -36,7 +36,7 @@ const filmApiService = {
   },
 
   async fetchFilmsById(id) {
-    const requestParams = `/movie/${id}?api_key=${this.api_key}`;
+    const requestParams = `/movie/${id}?api_key=${this.api_key}&append_to_response=videos`;
     const url = `${this.base_url}/${requestParams}`;
     return await this.fetchFilm(url);
   },
@@ -45,14 +45,14 @@ const filmApiService = {
     const response = await fetch(url);
     return response.json();
   },
-  
 };
 
-export {filmApiService};
+export { filmApiService };
 
 export function normalData(data, refs, render, emptyPoster) {
   const normalData = data.map(movie => {
-    const releaseYear = new Date(movie.release_date).getFullYear();
+    const releaseDate = new Date(movie.release_date).getFullYear();
+    const releaseYear = releaseDate ? releaseDate : '42';
     const fullPath = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     const poster = movie.poster_path ? fullPath : emptyPoster;
 
@@ -69,5 +69,5 @@ export function normalData(data, refs, render, emptyPoster) {
   });
 
   const renderMarkup = render(normalData);
-  refs.innerHTML = renderMarkup; 
-};
+  refs.innerHTML = renderMarkup;
+}

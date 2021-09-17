@@ -1,7 +1,20 @@
 .hero {
-  background-color: #2d3436;
-  background-image: linear-gradient(315deg, #181717 0%, #000000 74%);
   padding-bottom: 60px;
+  background-image: radial-gradient(
+    circle,
+    #6d2e00,
+    #612c00,
+    #562a00,
+    #4c2700,
+    #422400,
+    #3c1f03,
+    #361b05,
+    #2f1707,
+    #27120a,
+    #1e0d0b,
+    #130708,
+    #000000
+  );
 }
 .hero-list {
   @media screen and (min-width: 768px) {
@@ -71,40 +84,6 @@
 }
 
 .hero {
-  // background-image: radial-gradient(
-  //   circle,
-  //   #5a3874,
-  //   #583e70,
-  //   #56446b,
-  //   #554966,
-  //   #554e60,
-  //   #514d5a,
-  //   #4d4c54,
-  //   #4b4b4d,
-  //   #444446,
-  //   #3d3d3e,
-  //   #373737,
-  //   #303030
-  // );
-  background-image: radial-gradient(
-    circle,
-    #6d2e00,
-    #612c00,
-    #562a00,
-    #4c2700,
-    #422400,
-    #3c1f03,
-    #361b05,
-    #2f1707,
-    #27120a,
-    #1e0d0b,
-    #130708,
-    #000000
-  );
-  // background-image: url(../images/charcoal-background.jpg);
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
   padding-top: 20px;
   @media screen and (min-width: 768px) {
     padding-top: 60px;
@@ -112,25 +91,25 @@
 }
 
 .back_to_top {
-  position: fixed;
-  bottom: 5%;
-  right: 5%;
-  z-index: 9999;
-  width: 60px;
-  height: 60px;
-  text-align: center;
-  line-height: 30px;
-  background-color: transparent;
-  color: #444;
-  cursor: pointer;
-  border-radius: 50%;
   display: none;
-  border: none;
+
+  @media screen and (min-width: 768px) {
+    position: fixed;
+    bottom: 18%;
+    right: 2%;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    background-color: transparent;
+    color: #444;
+    cursor: pointer;
+    border-radius: 50%;
+    // display: none;
+    border: none;
+  }
 }
-
-// .back_to_top:hover {
-
-// }
 
 .buttonUP:hover {
   fill: var(--bg-text-cl);
@@ -139,9 +118,21 @@
 }
 
 .back_to_top-show {
-  display: block;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }
 
 .buttonUP {
   fill: var(--accent-cl);
+}
+
+//library rating code
+.library__rating {
+  background-color: var(--accent-cl);
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--bg-text-cl);
+  border-radius: 5px;
+  margin-left: 5px;
 }

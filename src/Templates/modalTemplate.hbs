@@ -13,7 +13,8 @@
       <p class='modal_text'>Vote / Votes</p>
       <span class='modal__text-dark'>
         <span class='modal__rating'>{{vote_average}}</span>/
-        <span>{{vote_count}}</span></span>
+        <span>{{vote_count}}</span>
+      </span>
     </li>
     <li class='modal__item'>
       <p class='modal_text'>Popularity</p>
@@ -32,6 +33,11 @@
   <p class='modal__description'>
     {{overview}}
   </p>
+  <div class='modal__trailer_container is-hidden'>
+    <button type='button' class='modal__trailer_button'>
+      watch trailer
+    </button>
+  </div>
   <div class='btn-box'>
     <button type='button' class='btn btn__modal btn--active' data-action='addWatch'>
       Add to watched
