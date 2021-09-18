@@ -10,11 +10,7 @@ import { normalData } from './api-service';
 const refList = document.querySelector('.hero-list');
 const refsPagination = document.querySelector('#pagination');
 
-
-// refsPagination.classList.remove('is-hidden');
-
 function fetchRenderWithPagination() {
-  // refsPagination.classList.add('is-hidden');
   
   filmApiService.fetchPopularFilms().then(data => {
   const options = {
@@ -37,11 +33,11 @@ function fetchRenderWithPagination() {
     refsPagination.classList.remove('is-hidden');
 });
 }
-// fetchRenderWithPagination();
+
 
 function backToTop() {
     window.scrollTo(pageXOffset, 0);
   }
 
 export { fetchRenderWithPagination, backToTop };
-// export default backToTop;
+

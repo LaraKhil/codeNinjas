@@ -4,9 +4,11 @@ import { apiRenderFirstPage } from './cartset';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { backToTop } from './pagination';
+
 const refsLoader = document.querySelector('.js-loader');
 const refList = document.querySelector('.hero-list');
 const refsPagination = document.querySelector('#pagination');
+
 
 const Refs = {
   pagination: document.querySelector('#pagination'),

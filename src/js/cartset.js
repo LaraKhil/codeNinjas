@@ -25,14 +25,10 @@ export function apiRenderFirstPage() {
       normalData(results, refList, renderPopularFilms, emptyPoster);
       setTimeout(fetchRenderWithPagination, 50);
       refsLoader.classList.add('is-hidden');
-    });
-  // setTimeout(fetchRenderWithPagination, 50);
-  
+    });  
 };
 
 setTimeout(apiRenderFirstPage, 500);
-
-
 
 function trackScroll() {
   const scrolled = window.pageYOffset;

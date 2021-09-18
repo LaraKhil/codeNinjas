@@ -4,11 +4,8 @@ import { debounce } from 'lodash';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { fetchRenderWithPagination, backToTop } from './pagination';
-// import backToTop from './pagination'
-
 import { normalData } from './api-service';
 import emptyPoster from '../images/plug.png';
-
 import { apiRenderFirstPage } from './cartset';
 
 const refsError = document.querySelector('#error-form');
@@ -33,16 +30,6 @@ function onInput(e) {
     // setTimeout(fetchRenderWithPagination, 550);
     return;
 
-
-    // <<<<<<< add-animation
-    //     return filmApiService
-    //       .fetchAPIGenres()
-    //       .then(data => (filmApiService.genres = data.genres))
-    //       .then(() => filmApiService.fetchPopularFilms())
-    //       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
-    // =======
-
-
   }
 
   filmApiService.fetchFilmsByQuery(input).then(({ results, total_results }) => {
@@ -66,13 +53,10 @@ function onInput(e) {
 
     pagination.on('beforeMove', event => {
       const currentPage = event.page;
-      // console.log(currentPage);
       filmApiService
         .fetchFilmsByQuery(input, currentPage)
         .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
       backToTop();
     });
-
-    // normalData(results, refList, renderPopularFilms, emptyPoster);
   });
 }

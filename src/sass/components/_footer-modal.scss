@@ -31,7 +31,7 @@
         padding-bottom: 25px;
         background-color: var(--bg-text-cl);
         border-radius: 5px;
-        background: rgb(94, 94, 94, 0.8);;
+        background: rgb(94, 94, 94, 0.8);
 
         @media screen and (min-width: 768px){
             max-width: 618px;
@@ -132,14 +132,13 @@
         width: 40px;
         height: 40px;
        
-
         &:hover {
             color: var(--accent-cl);
             transform: rotate(180deg);
         }
 
         &:active {
-            color: white;
+            color: var(--bg-text-cl);
             background-color: var(--accent-cl);
             transform: rotate(180deg);
         }

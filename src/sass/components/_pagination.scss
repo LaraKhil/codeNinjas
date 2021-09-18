@@ -31,7 +31,6 @@
   padding: 8px 0 6px;
   margin-left: 0;
   color: var(--bg-text-cl);
-  // color: #333;
   font-size: 12px;
   font-weight: normal;
   line-height: 1;
@@ -39,13 +38,11 @@
   vertical-align: middle;
 
   border: 0px solid #ddd;
-  //   border-width: 1px 0;
   @media screen and(min-width: 768px) {
     width: 40px;
     padding: 15px 0 14px;
   }
   &:hover {
-    // outline: 1px solid var(--bg-text-cl);
     color: rgb(179, 179, 179);
   }
 }

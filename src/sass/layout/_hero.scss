@@ -1,4 +1,5 @@
 .hero {
+  min-height: calc(100vh - 334px);
   padding-bottom: 60px;
   background-image: radial-gradient(
     circle,
@@ -15,10 +16,11 @@
     #130708,
     #000000
   );
-  min-height: calc(100vh - 230px - 103px);
+
   @media screen and (min-width: 768px) {
     min-height: calc(100vh - 230px - 75px);
   }
+
 }
 .hero-list {
   @media screen and (min-width: 768px) {
@@ -36,7 +38,6 @@
       flex-basis: calc(100% / 2 - 30px);
       margin-left: 30px;
       margin-top: 30px;
-      // background-color: green;
     }
 
     @media screen and (min-width: 1024px) {

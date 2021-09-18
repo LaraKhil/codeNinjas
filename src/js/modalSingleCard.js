@@ -5,7 +5,8 @@ import modalBtnService from './modal-btn';
 import emptyPoster from '../images/plug.png';
 //---conecting-lightbox---
 import * as basicLightbox from 'basiclightbox';
-import 'basicLightbox/dist/basicLightbox.min.css';
+import 'basiclightbox/dist/basicLightbox.min.css';
+
 //---conecting-lightbox---
 
 const modalList = document.querySelector('.modal');
@@ -17,12 +18,7 @@ function onFilmClick(e) {
   }
   const targetId = e.target.id;
 
-  document.addEventListener('keydown', e => {
-    const keyEsc = e.key === 'Escape';
-    if (keyEsc) {
-      modalList.classList.add('show');
-    }
-  });
+  onWindowEsc(modalList);
 
   filmApiService
     .fetchFilmsById(targetId)
@@ -39,6 +35,8 @@ function onFilmClick(e) {
         const renderModal = renderModalWindow(data);
         modalHBS.innerHTML = renderModal;
 
+        modalHBS.innerHTML = renderModal;
+
         const liItem = e.target.closest('li');
         const modalRefs = {
           modalImg: liItem.querySelector('.hero-list__img'),
@@ -51,10 +49,9 @@ function onFilmClick(e) {
         const modalGenres = modalImg.dataset.genres;
         modalGenreHtml.innerHTML = modalGenres;
 
-        modalList.classList.remove('show', 'scale');
+        modalList.classList.remove('show');
         //---TRAILER-BUTTON-START---
 
-        console.log(data.videos);
         const openTrailer = () => {
           const instance = basicLightbox.create(
             `<iframe src="https://www.youtube.com/embed/${data.videos.results[0].key}" width="560" height="315" frameborder="0"></iframe>`,
@@ -93,5 +90,14 @@ function onFilmClick(e) {
       }
     });
 }
+
+export function onWindowEsc(selector){
+  document.addEventListener('keydown', e => {
+    const keyEsc = e.key === 'Escape';
+    if (keyEsc) {
+      selector.classList.add('show');
+    }
+  });
+};
 
 refs.addEventListener('click', onFilmClick);

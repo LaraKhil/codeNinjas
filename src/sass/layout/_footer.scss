@@ -1,15 +1,15 @@
-// footer
 .footer {
   display: flex;
   align-items: center;
-  color: var(--h-footer-cl);
-  background-color: var(--bg-footer);
+  color: var(--bg-text-cl);
+  background-color: var(--main-text-cl);
   padding-bottom: 29px;
   padding-top: 29px;
 
+
   &__link {
     margin-left: 5px;
-    color: var(--h-footer-cl);
+    color: var(--bg-text-cl);
     text-decoration: underline;
   }
   &__svgHeart {
