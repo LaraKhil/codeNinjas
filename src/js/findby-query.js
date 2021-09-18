@@ -27,8 +27,9 @@ function onInput(e) {
     refsLoader.classList.remove('is-hidden');
     refList.innerHTML = "";
     setTimeout(apiRenderFirstPage, 500);
-    setTimeout(fetchRenderWithPagination, 550);
+    // setTimeout(fetchRenderWithPagination, 550);
     return;
+
   }
 
   filmApiService.fetchFilmsByQuery(input).then(({ results, total_results }) => {

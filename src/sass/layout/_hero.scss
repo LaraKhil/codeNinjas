@@ -17,8 +17,8 @@
     #000000
   );
 
-  @media screen and (min-width: 768px){
-    min-height: calc(100vh - 306px);
+  @media screen and (min-width: 768px) {
+    min-height: calc(100vh - 230px - 75px);
   }
 
 }
@@ -96,7 +96,6 @@
 }
 
 .back_to_top {
-
   display: none;
 
   @media screen and (min-width: 768px) {
@@ -124,7 +123,8 @@
 
 .back_to_top-show {
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
+
 
     display: block;
   }

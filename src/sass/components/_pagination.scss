@@ -15,7 +15,7 @@
 }
 
 .tui-pagination {
-  height: 28px;
+  height: 100%;
   margin: 32px 0 0;
   line-height: normal;
   text-align: center;
@@ -23,7 +23,7 @@
 }
 
 .tui-pagination .tui-page-btn {
-  width: 20px;
+  width: 24px;
 
   display: inline-block;
   position: relative;
@@ -142,6 +142,9 @@
   border-radius: 5px;
   // padding: 0;
   line-height: 1;
+  @media screen and(max-width: 767px) {
+    display: none;
+  }
   @media screen and(min-width: 768px) {
     padding-top: 6px;
   }
