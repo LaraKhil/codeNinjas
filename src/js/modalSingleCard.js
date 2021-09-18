@@ -18,12 +18,7 @@ function onFilmClick(e) {
   }
   const targetId = e.target.id;
 
-  document.addEventListener('keydown', e => {
-    const keyEsc = e.key === 'Escape';
-    if (keyEsc) {
-      modalList.classList.add('show');
-    }
-  });
+  onWindowEsc(modalList);
 
   filmApiService
     .fetchFilmsById(targetId)
@@ -95,5 +90,14 @@ function onFilmClick(e) {
       }
     });
 }
+
+export function onWindowEsc(selector){
+  document.addEventListener('keydown', e => {
+    const keyEsc = e.key === 'Escape';
+    if (keyEsc) {
+      selector.classList.add('show');
+    }
+  });
+};
 
 refs.addEventListener('click', onFilmClick);
