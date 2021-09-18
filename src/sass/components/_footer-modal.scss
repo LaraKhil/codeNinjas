@@ -1,35 +1,40 @@
 .fmodal{
-    z-index: 2;
+    z-index: 100;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     overflow: scroll;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     background-color: rgba(130, 130, 130, 0.45);
     opacity: 1;
     transition: opacity var(--transition), visibility var(--transition);
-    overflow: scroll;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @media screen and (min-width: 1024px){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     &__wrapper {
-        
-        max-width: 280px;
+        display: flex;
+        justify-content: center;
         position: relative;
+        max-width: 95%;
         margin: 0 auto;
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 40px;
         padding-bottom: 25px;
         background-color: var(--bg-text-cl);
-        transform: translateY(30px);
-        border-radius: 20px;
+        border-radius: 5px;
         background: rgb(94, 94, 94, 0.8);;
 
         @media screen and (min-width: 768px){
             max-width: 618px;
-
-            // top: 50%;
-            // transform: translateY(-50%);
             padding-left: 28px;
             padding-right: 28px;
             padding-top: 42px;
@@ -37,7 +42,6 @@
         }
 
         @media screen and (min-width: 1024px) {
-            transform: translateY(20%);
             max-width: 1200px;
             padding-left: 30px;
             padding-right: 30px;
@@ -48,7 +52,11 @@
 }
 .fcards-container {
     display: flex;
+    
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -15px;
 
     @media screen and (min-width: 768px){
         flex-direction: row;
@@ -61,25 +69,38 @@
 }
 
 .fcard-container {
-    width: 240px;
-    border-radius: 5%;
+    flex-basis: 100%;
+    border-radius: 5px;
     border-width: 10px;
     margin-bottom: 15px;
     border: 5px solid rgb(48, 48, 48);
     padding-bottom: 15px;
     background: rgb(48, 48, 48);
-    margin-right: 15px;
     
 
     @media screen and (min-width: 768px){
-        width: 220px;
+        flex-basis: calc((100% / 3) - 30px);
+        // width: 220px;
+         margin-right: 15px;
+    }
+
+    @media screen and (min-width: 1024px){
+        flex-basis: calc((100% / 5) - 30px);
     }
 }
 
 .card-img {
-    display: block;
     margin-bottom: 8px;
-    border-radius: 5%;
+    border-radius: 5px;
+    max-height: 356px;
+    
+    @media screen and (min-width: 768px){
+        max-height: 200px;
+    }
+
+    @media screen and (min-width: 1024px){
+       max-height: 250px; 
+    }
 }
 
 .fname {
@@ -124,16 +145,3 @@
         }
     }
 }
-
-// .card-margin {
-//     @media screen and (min-width: 1024px) {
-//         margin-right: 50px;
-//         margin-left: 50px;  
-//     }
-// }
-
-// .card-margin2 {
-//     @media screen and (min-width: 768px) and (max-width: 1023px){
-//         margin-right: 20px;
-//     }
-// }

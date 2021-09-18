@@ -33,6 +33,7 @@ function onInput(e) {
     // setTimeout(fetchRenderWithPagination, 550);
     return;
 
+
     // <<<<<<< add-animation
     //     return filmApiService
     //       .fetchAPIGenres()
@@ -40,6 +41,7 @@ function onInput(e) {
     //       .then(() => filmApiService.fetchPopularFilms())
     //       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
     // =======
+
 
   }
 
