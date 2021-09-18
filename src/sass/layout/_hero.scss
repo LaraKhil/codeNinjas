@@ -15,7 +15,10 @@
     #130708,
     #000000
   );
-
+  min-height: calc(100vh - 230px - 103px);
+  @media screen and (min-width: 768px) {
+    min-height: calc(100vh - 230px - 75px);
+  }
 }
 .hero-list {
   @media screen and (min-width: 768px) {
@@ -92,7 +95,6 @@
 }
 
 .back_to_top {
-
   display: none;
 
   @media screen and (min-width: 768px) {
@@ -120,7 +122,8 @@
 
 .back_to_top-show {
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
+
 
     display: block;
   }

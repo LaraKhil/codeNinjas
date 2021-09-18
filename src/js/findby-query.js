@@ -30,8 +30,17 @@ function onInput(e) {
     refsLoader.classList.remove('is-hidden');
     refList.innerHTML = "";
     setTimeout(apiRenderFirstPage, 500);
-    setTimeout(fetchRenderWithPagination, 550);
+    // setTimeout(fetchRenderWithPagination, 550);
     return;
+
+
+    // <<<<<<< add-animation
+    //     return filmApiService
+    //       .fetchAPIGenres()
+    //       .then(data => (filmApiService.genres = data.genres))
+    //       .then(() => filmApiService.fetchPopularFilms())
+    //       .then(({ results }) => normalData(results, refList, renderPopularFilms, emptyPoster));
+    // =======
 
 
   }
